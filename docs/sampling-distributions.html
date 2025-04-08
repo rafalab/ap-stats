@@ -273,7 +273,7 @@ Population parameters
 <p><span class="math display">\[
 \mu = \frac{1}{n}\sum_{i=1}^n x_i
 \]</span></p>
-<p>Most of this chapter is about <em>estimating</em> the population mean <span class="math inline">\(mu\)</span>.</p>
+<p>Most of this chapter is about <em>estimating</em> the population mean <span class="math inline">\(\mu\)</span>.</p>
 <p>Another parameter we will need is the <strong>population standard deviation</strong>:</p>
 <p><span class="math display">\[
 \sigma = \sqrt{\frac{1}{n}\sum_{i=1}^n (x_i-\mu)^2}
@@ -291,14 +291,14 @@ Population proportion
 </div>
 <div class="callout-body-container callout-body">
 <p>When the <span class="math inline">\(x\)</span>s are 0s or 1s, then the population mean is equivalent to the proportion of 1s.</p>
-<p>In this case we use the sybol <span class="math inline">\(p\)</span> instead of <span class="math inline">\(\mu\)</span>.</p>
+<p>In this case we use the symbol <span class="math inline">\(p\)</span> instead of <span class="math inline">\(\mu\)</span>.</p>
 <p>And the standard deviation can be shown to be <span class="math inline">\(\sqrt{p(1-p)}\)</span></p>
 </div>
 </div>
 </section>
 <section id="the-sample-average" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="the-sample-average"><span class="header-section-number">3.2</span> The sample average</h2>
-<p>The strategy to estimate the population parameter is to take a random sample: we can’t examin all the sample so we examine a much smaller subset.</p>
+<p>The strategy to estimate the population parameter is to take a random sample: we can’t examine all the sample so we examine a much smaller subset.</p>
 <p>We learn that we can learn a lot about population parameters from samples.</p>
 <p>By far the most common example is using a <em>sample average</em> to estimate a <em>population mean</em>.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -312,7 +312,7 @@ A sample
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>A sample are the resulting obsered values we obtain when picking indivuals at random from the popuation.</p></li>
+<li><p>A sample are the resulting observed values we obtain when picking individuals at random from the population.</p></li>
 <li><p>We represent them with capital letters because they are <strong>random variables</strong>:</p></li>
 </ul>
 <p><span class="math display">\[X_1, \dots, X_N\]</span></p>
@@ -344,7 +344,7 @@ The sample average
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>A sample are the resulting obsered values we obtain when picking indivuals at random from the popuation.</p></li>
+<li><p>A sample are the resulting observed values we obtain when picking individuals at random from the population.</p></li>
 <li><p>We represent them with capital letters because they are <strong>random variables</strong>:</p></li>
 </ul>
 <p><span class="math display">\[X_1, \dots, X_N\]</span> * <span class="math inline">\(N\)</span> is called the sample size.</p>
@@ -365,8 +365,8 @@ Central Limit Theorem (CLT)
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>If <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_N\)</span> are random variables that are indepent and have ths same distribution, the sum <span class="math inline">\(\sum_{i=1}^N X_i\)</span> gets closer and closer to being mormally distributed when <span class="math inline">\(N\)</span> gets very large.</p></li>
-<li><p>Because dividing a normal random variable by a constant is still normal, the CLT applies to theaverage <span class="math inline">\(\frac{1}{N}\sum_{i=1}^N X_i\)</span> as well.</p></li>
+<li><p>If <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_N\)</span> are random variables that are independent and have the same distribution, the sum <span class="math inline">\(\sum_{i=1}^N X_i\)</span> gets closer and closer to being normally distributed when <span class="math inline">\(N\)</span> gets very large.</p></li>
+<li><p>Because dividing a normal random variable by a constant is still normal, the CLT applies to the average <span class="math inline">\(\frac{1}{N}\sum_{i=1}^N X_i\)</span> as well.</p></li>
 <li><p><strong>Rule of thumb</strong> <span class="math inline">\(N\geq 30\)</span> is considered large enough.</p></li>
 </ul>
 </div>
@@ -384,7 +384,7 @@ Central Limit Theorem (CLT)
 <p>We want to to estimate <span class="math inline">\(p\)</span>, the population parameter.</p>
 <p>Note that:</p>
 <ul>
-<li><p>Each <span class="math inline">\(X\)</span> in the sample is a Bernoulli trial becuase <span class="math inline">\(\text{P}(X=1) = p\)</span>.</p></li>
+<li><p>Each <span class="math inline">\(X\)</span> in the sample is a Bernoulli trial because <span class="math inline">\(\text{P}(X=1) = p\)</span>.</p></li>
 <li><p>This implies that for all <span class="math inline">\(i\)</span>, <span class="math inline">\(\mu_{X_i} = p\)</span> and <span class="math inline">\(\sigma_{X_i} = \sqrt{p(1-p)}\)</span></p></li>
 <li><p>Because we sample with replacement the <span class="math inline">\(X\)</span>s are independent.</p></li>
 </ul>
@@ -402,7 +402,7 @@ Mean and SD of sample proportion
 <p><span class="math display">\[
 \hat{p} = \frac{1}{N}\sum_{i=1}^N X_i
 \]</span></p>
-<p>Using what we have learned about mean and SD of combinations and rescaling we have:</p>
+<p>Using what we have learned about mean and SD of combinations and re-scaling we have:</p>
 <ul>
 <li><span class="math inline">\(\mu_{\hat{p}} = p\)</span></li>
 <li><span class="math inline">\(\sigma_{\hat{p}} = \frac{\sigma_X}{\sqrt{N}} = \frac{\sqrt{p(1-p)}}{\sqrt{N}}\)</span></li>
@@ -420,7 +420,7 @@ Distribution of sample proportion
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p><span class="math inline">\(\hat{p}\)</span> is a sum of Bernoulli trials divded by a constant. So we could use the Binomial distribution to compute <span class="math inline">\(\text{P}(\hat{p} = k/N)\)</span></p></li>
+<li><p><span class="math inline">\(\hat{p}\)</span> is a sum of Bernoulli trials divided by a constant. So we could use the Binomial distribution to compute <span class="math inline">\(\text{P}(\hat{p} = k/N)\)</span></p></li>
 <li><p>However, in the exam they want you to use the CLT.</p></li>
 <li><p><span class="math inline">\(\hat{p}\)</span> is approximated by normal distribution with mean <span class="math inline">\(p\)</span> and SD <span class="math inline">\(\sqrt{p(1-p)/n}\)</span></p></li>
 </ul>
@@ -436,7 +436,7 @@ Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If I take a poll if 1000 people to get an idea of how many people are voting for Trump, what is the chance that my sample proporion <span class="math inline">\(\hat{p}=0.45\)</span> is within 1% of the actual proportion?</p>
+<p>If I take a poll if 1000 people to get an idea of how many people are voting for Trump, what is the chance that my sample proportion <span class="math inline">\(\hat{p}=0.45\)</span> is within 1% of the actual proportion?</p>
 <p>We are asking <span class="math inline">\(\text{P}(|\hat{p} - p| &lt; 0.01)\)</span></p>
 <p>Let’s figure it out:</p>
 <p><span class="math display">\[
@@ -493,7 +493,7 @@ Mean and SD of sample average
 <p><span class="math display">\[
 \bar{X} = \frac{1}{N}\sum_{i=1}^N X_i
 \]</span></p>
-<p>Using what we have learned about mean and SD of combinations and rescaling we have:</p>
+<p>Using what we have learned about mean and SD of combinations and re-scaling we have:</p>
 <ul>
 <li><span class="math inline">\(\mu_{\bar{X}} = \mu\)</span></li>
 <li><span class="math inline">\(\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{N}}\)</span></li>
@@ -524,7 +524,7 @@ Sample standard deviation
 </div>
 <div class="callout-body-container callout-body">
 <p>If I want to make probability calculations I need to know <span class="math inline">\(\sigma_{\bar{X}}\)</span>, but I don’t know <span class="math inline">\(sigma\)</span>.</p>
-<p>For proportions we used <span class="math inline">\(\sqrt{\hat{p}(1-\hat{p})}\)</span> as an approximation of the stnard deviation <span class="math inline">\(\sqrt{p(1-p)}\)</span></p>
+<p>For proportions we used <span class="math inline">\(\sqrt{\hat{p}(1-\hat{p})}\)</span> as an approximation of the standard deviation <span class="math inline">\(\sqrt{p(1-p)}\)</span></p>
 <p>But when sample means are not based on Bernoulli trials, we can’t do that.</p>
 <p>Instead we use the sample standard deviation.</p>
 <p><span class="math display">\[

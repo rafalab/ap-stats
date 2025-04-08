@@ -227,7 +227,7 @@ window.Quarto = {
 <li><p>Provide an interval with 95% of containing the true proportion <span class="math inline">\(p\)</span></p></li>
 </ul>
 <p>Solution:</p>
-<p>Our proprotion <span class="math inline">\(\hat{p}\)</span> follows a normal distribution with mean <span class="math inline">\(p\)</span> and standard deviation <span class="math inline">\(\sqrt{p(1-p)/N} \approx \sqrt{0.45\times 0.55/1000} \approx 0.016\)</span></p>
+<p>Our proportion <span class="math inline">\(\hat{p}\)</span> follows a normal distribution with mean <span class="math inline">\(p\)</span> and standard deviation <span class="math inline">\(\sqrt{p(1-p)/N} \approx \sqrt{0.45\times 0.55/1000} \approx 0.016\)</span></p>
 <p>Lets consider symmetric intervals with: <span class="math inline">\([\hat{p} - B, \hat{p} + B]\)</span></p>
 <p>We want to find a <em>margin of error</em> <span class="math inline">\(\text{MOE}\)</span> such that:</p>
 <p><span class="math display">\[
@@ -253,7 +253,7 @@ window.Quarto = {
 <section id="critical-values" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="critical-values"><span class="header-section-number">4.2</span> Critical values</h2>
 <p>We already knew that using <span class="math inline">\(2\)</span> would give us a 95% confidence interval.</p>
-<p>Bute what if we didn’t know? Or if we wanted a 99% confidence interval?</p>
+<p>But what if we didn’t know? Or if we wanted a 99% confidence interval?</p>
 <p>The function <code>invNorm</code> will do this for us. The impute is the area to the left.</p>
 <p>So to obtain 95% we need 0.5% to the left and 0..5% to the right.</p>
 <p>We use <code>invNorm(0.995)</code> which gives us <code>r qnorm(0.995)</code></p>
@@ -279,7 +279,7 @@ window.Quarto = {
 &amp;=1 - \text{P}\left(|Z| &lt; \frac{0.1}{\sigma_{\hat{p}}}\right)
 \end{aligned}
 \]</span></p>
-<p>When the null hypotheis holds, <span class="math inline">\(\sigma_{\hat{p}} = \sqrt{0.5\times 0.5 / 100} = 0.05\)</span></p>
+<p>When the null hypothesis holds, <span class="math inline">\(\sigma_{\hat{p}} = \sqrt{0.5\times 0.5 / 100} = 0.05\)</span></p>
 <p>So the p-value is <span class="math inline">\(1 - \text{P}(|Z| &lt; 0.1/0.05 = 2)\)</span> which is a bit less than 0.05</p>
 <p>We reject the null hypothesis.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -327,7 +327,7 @@ Type of errors
 <section id="p-value" class="level3" data-number="4.4.2">
 <h3 data-number="4.4.2" class="anchored" data-anchor-id="p-value"><span class="header-section-number">4.4.2</span> p-value</h3>
 <ul>
-<li><p>Suppose we have sample sizes of 25 and 100 for the the drug and placebo group repsectively and</p></li>
+<li><p>Suppose we have sample sizes of 25 and 100 for the the drug and placebo group respectively and</p></li>
 <li><p>we observe <span class="math inline">\(\hat{p}_1 = 0.25\)</span> and <span class="math inline">\(\hat{p}_2 = 0.15\)</span></p></li>
 <li><p>The null is that there is no difference so <span class="math inline">\(p_1 - p_2\)</span> or <span class="math inline">\(p_1 = p_2 = p\)</span></p></li>
 </ul>
@@ -340,7 +340,7 @@ Type of errors
 <p>We estimate <span class="math inline">\(p\)</span> with pooled data:</p>
 <p><span class="math display">\[\frac{N_1\hat{p}_1 + N_2\hat{p}_2}{N_1+N_2} = 0.17\]</span></p>
 <p>which means <span class="math inline">\(\sigma_{\hat{p}_1 - \hat{p}_2} \approx \sqrt{(0.17\times 0.83)(1/25+1/100)} \approx 0.08\)</span></p>
-<p>With this we can comptue</p>
+<p>With this we can compute</p>
 <p><span class="math display">\[
 \begin{aligned}
 \text{P}(|\hat{p}_1 - \hat{p}_2| \geq 0.1) &amp;= 1 - \text{P}(|Z| &lt; 0.1/\sigma_{\hat{p}_1 - \hat{p}_2})\\

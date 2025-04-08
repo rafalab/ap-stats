@@ -255,7 +255,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Later we will need the <em>cumulative distribution function</em> wchih is simply deinfed by</p>
+<p>Later we will need the <em>cumulative distribution function</em> which is simply defined by</p>
 <p><span class="math display">\[
 \begin{aligned}
 F(a) &amp;= \text{P}(X &lt;= a)\\
@@ -322,7 +322,7 @@ Example 3: Sum of two dice
 \]</span></p>
 </div>
 </div>
-<p>The pdf is often shown as a table or a grpah. For the graph we simply plot a bar for each <span class="math inline">\(k\)</span> going up to <span class="math inline">\(p_k\)</span>.</p>
+<p>The pdf is often shown as a table or a graph. For the graph we simply plot a bar for each <span class="math inline">\(k\)</span> going up to <span class="math inline">\(p_k\)</span>.</p>
 <p>Here is th pdf for the sum of two dice:</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -336,7 +336,7 @@ Example 3: Sum of two dice
 </section>
 <section id="mean-and-standard-deviation-of-a-random-variable" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="mean-and-standard-deviation-of-a-random-variable"><span class="header-section-number">2.2</span> Mean and standard deviation of a random variable</h2>
-<p>The mean and standard deviation of the the distribution of a random variable <span class="math inline">\(X\)</span> are referred as the mean and stadnard deviation of <span class="math inline">\(X\)</span>.</p>
+<p>The mean and standard deviation of the the distribution of a random variable <span class="math inline">\(X\)</span> are referred as the mean and standard deviation of <span class="math inline">\(X\)</span>.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -397,8 +397,8 @@ The variance
 <div class="callout-body-container callout-body">
 <p>The variance is simply the standard deviation squared <span class="math inline">\(\sigma_X^2\)</span>.</p>
 <ul>
-<li><p>We define the variance because mathematical calculations are easier without the square root. Other than that we always use standard devatiion.</p></li>
-<li><p>The standard deviation has the same units as <span class="math inline">\(X\)</span>. The variance has units squared which has no interpretation. What is kilograms sauared or dollars squared?</p></li>
+<li><p>We define the variance because mathematical calculations are easier without the square root. Other than that we always use standard deviation.</p></li>
+<li><p>The standard deviation has the same units as <span class="math inline">\(X\)</span>. The variance has units squared which has no interpretation. What is kilograms squared or dollars squared?</p></li>
 </ul>
 </div>
 </div>
@@ -420,13 +420,13 @@ Bernoulli trial definition
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p><span class="math inline">\(X\)</span> is either 1 (success) or failiure (0).</p></li>
+<li><p><span class="math inline">\(X\)</span> is either 1 (success) or failure (0).</p></li>
 <li><p>Completely defined by the probability of success: <span class="math inline">\(\text{P}(X=1) = p\)</span>.</p></li>
 <li><p>The probability of failure is simply <span class="math inline">\(1-p\)</span>, sometimes called <span class="math inline">\(q\)</span>.</p></li>
 </ul>
 </div>
 </div>
-<p>Bernoulli trias are popular because we can use them to count random things: number of heads when we toss coins, number of lottery winners, number of defective light bulbs made in a day by a factory, number of patients that got cured by a drug, number of COVID-19 hospitalizations in a day, and so on.</p>
+<p>Bernoulli trials are popular because we can use them to count random things: number of heads when we toss coins, number of lottery winners, number of defective light bulbs made in a day by a factory, number of patients that got cured by a drug, number of COVID-19 hospitalizations in a day, and so on.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -437,7 +437,11 @@ Bernoulli trial mean and SD
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If <span class="math inline">\(X\)</span> is a Bernoulli trial * <span class="math inline">\(\mu_X = p\)</span> * <span class="math inline">\(\sigma_X = \sqrt{p(1-p)}\)</span></p>
+<p>If <span class="math inline">\(X\)</span> is a Bernoulli trial:</p>
+<ul>
+<li><span class="math inline">\(\mu_X = p\)</span></li>
+<li><span class="math inline">\(\sigma_X = \sqrt{p(1-p)}\)</span></li>
+</ul>
 </div>
 </div>
 <p>You need to memorize this but here is the derivation</p>
@@ -490,7 +494,7 @@ Mean of linear combinations
 <ul>
 <li><span class="math inline">\(\mu_{X+Y} = \mu_{X}+ \mu_{Y}\)</span></li>
 <li><span class="math inline">\(\mu_{X+a} = \mu_{X} + a\)</span></li>
-<li><span class="math inline">\(\mu_{aX} = a \mu_{X}\)</span>*</li>
+<li><span class="math inline">\(\mu_{aX} = a \mu_{X}\)</span></li>
 </ul>
 </div>
 </div>
@@ -504,7 +508,7 @@ Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are two random varialbes, what is <span class="math inline">\(\mu_{X-Y}\)</span></p>
+<p>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are two random variables, what is <span class="math inline">\(\mu_{X-Y}\)</span>?</p>
 <p><span class="math display">\[
 \begin{aligned}
 \mu_{X-Y} &amp;= \mu_{X} + \mu_{-Y}\\
@@ -528,7 +532,7 @@ SD of linear combinations
 <ul>
 <li><span class="math inline">\(\sigma^2_{X+a} = \sigma^2_{X}\)</span>: shifting does not change variability.</li>
 <li><span class="math inline">\(\sigma^2_{aX} = a^2\sigma^2_{X} \implies \sigma_{aX} = |a|\sigma_{X}\)</span>: change of scale also scales measure of variability.</li>
-<li><strong>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span></strong> are independnet, <span class="math inline">\(\sigma^2_{X+Y} = \sigma_X^2 + \sigma_Y^2 \implies \sigma_{X+Y} = \sqrt{\sigma_X^2 + \sigma_Y^2}\)</span>: Adding two things that vary, varies more.</li>
+<li><strong>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span></strong> are independent, <span class="math inline">\(\sigma^2_{X+Y} = \sigma_X^2 + \sigma_Y^2 \implies \sigma_{X+Y} = \sqrt{\sigma_X^2 + \sigma_Y^2}\)</span>: Adding two things that vary, varies more.</li>
 </ul>
 </div>
 </div>
@@ -542,7 +546,7 @@ Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are two <strong>independent</strong> random varialbes, what is <span class="math inline">\(\sigma_{X-Y}\)</span></p>
+<p>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are two <strong>independent</strong> random variables, what is <span class="math inline">\(\sigma_{X-Y}\)</span>?</p>
 <p><span class="math display">\[
 \begin{aligned}
 \sigma^2_{X-Y} &amp;= \sigma^2_{X} + \sigma^2_{-Y}\\
@@ -554,7 +558,7 @@ Example
 <p><span class="math display">\[
 \sigma_{X-Y} = \sqrt{\sigma^2_{X} + \sigma^2_{-Y}}
 \]</span></p>
-<p>Interpretation: Subtracting two variables that vary independenty has more variability than each.</p>
+<p>Interpretation: Subtracting two variables that vary independently has more variability than each.</p>
 </div>
 </div>
 </section>
@@ -567,7 +571,7 @@ S = \sum_{i=1}^n X_i
 <p>It tells us the number of successes and it is also a random variable.</p>
 <p>Examples:</p>
 <ul>
-<li><p>Number of heads if toss coins</p></li>
+<li><p>Number of heads if I toss coins</p></li>
 <li><p>Number of free throws curry makes</p></li>
 </ul>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
@@ -615,10 +619,10 @@ Binomial pdf
 <p><span class="math display">\[
 \text{P}(S = k)  = \binom{n}{k} p^k (1-p)^{n-k}
 \]</span></p>
-<p>This is called the binomial distribution and can be computed in AP-test with <code>binompdf(n, p, k)</code> and the cdf with <code>binomcdf(n,p,k)</code></p>
+<p>This is called the binomial distribution and can be computed in AP-test with <code>binompdf(n, p, k)</code> and the CDF with <code>binomcdf(n,p,k)</code></p>
 </div>
 </div>
-<p>The cdf is useful for answering questions such as “what is the chance that we see 3 heads or less?” or “what is the chance we see 4,5,6 heads?”</p>
+<p>The CDF is useful for answering questions such as “what is the chance that we see 3 heads or less?” or “what is the chance we see 4,5,6 heads?”</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -644,7 +648,7 @@ Example
 </section>
 <section id="geometric-distribution" class="level2" data-number="2.6">
 <h2 data-number="2.6" class="anchored" data-anchor-id="geometric-distribution"><span class="header-section-number">2.6</span> Geometric distribution</h2>
-<p>It is also common ask how many trials do I need to see a success. For example, how many free throws will Curry take until he misses.</p>
+<p>It is also common to ask how many trials do I need to see a success. For example, how many free throws will Curry take until he misses.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -655,10 +659,11 @@ Geometric distribution
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Define a random variable as <span class="math inline">\(X\)</span>=number of trials we see before the first success.</p>
+<p>Define a random variable as <span class="math inline">\(X\)</span>=number of trials if we stop after the first success.</p>
 <p>It is not hard to see that this is: <span class="math display">\[
 \text{P}(X=k) = (1-p)^k p
 \]</span></p>
+<p>This is called the Geometric distribution, defined for <span class="math inline">\(k=1,2,\dots,\infty\)</span>.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
@@ -693,7 +698,7 @@ Example: number of free thows before Curry misses.
 Z = \frac{S - np}{\sqrt{np(1-p)}}
 \]</span></p>
 <p>Then Z is approximated by standard normal</p>
-<p>Here is a <span class="math inline">\(n=10, p=0.5\)</span> binomial with a normal with mean <span class="math inline">\(np = 5\)</span> and standard devataion <span class="math inline">\(\sqrt{np(1-p)} \approx 1.6\)</span> added in blue</p>
+<p>Here is a <span class="math inline">\(n=10, p=0.5\)</span> binomial with a normal with mean <span class="math inline">\(np = 5\)</span> and standard deviation <span class="math inline">\(\sqrt{np(1-p)} \approx 1.6\)</span> added in blue</p>
 <div class="cell">
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
@@ -727,7 +732,7 @@ Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If I toss 100 coins, what is the probability that I see between than 45 and 55 heads?</p>
+<p>If I toss 100 coins, what is the probability that I see between 45 and 55 heads?</p>
 <p>We can use the binomial to answer this exactly <code>binomcdf(100, 0.5, 55) - binomcdf(100, 0.5, 44)</code> which is 0.728747.</p>
 <p>But we can also use the normal distribution:</p>
 <p><span class="math display">\[

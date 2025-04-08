@@ -46,7 +46,7 @@ $$
 \mu = \frac{1}{n}\sum_{i=1}^n x_i
 $$
 
-Most of this chapter is about _estimating_ the population mean $mu$.
+Most of this chapter is about _estimating_ the population mean $\mu$.
 
 Another parameter we will need is the **population standard deviation**:
 
@@ -62,7 +62,7 @@ $$
 
 When the $x$s are 0s or 1s, then the population mean is equivalent to the proportion of 1s.
 
-In this case we use the sybol $p$ instead of $\mu$.
+In this case we use the symbol $p$ instead of $\mu$.
 
 And the standard deviation can be shown to be $\sqrt{p(1-p)}$
 :::
@@ -71,7 +71,7 @@ And the standard deviation can be shown to be $\sqrt{p(1-p)}$
 ## The sample average
 
 
-The strategy to estimate the population parameter is to take a random sample: we can't examin all the sample so we examine a much smaller subset.
+The strategy to estimate the population parameter is to take a random sample: we can't examine all the sample so we examine a much smaller subset.
 
 We learn that we can learn a lot about population parameters from samples.
 
@@ -82,7 +82,7 @@ By far the most common example is using a _sample average_ to estimate a _popula
 
 ## A sample
 
-* A sample are the resulting obsered values we obtain when picking indivuals at random from the popuation.
+* A sample are the resulting observed values we obtain when picking individuals at random from the population.
 
 * We represent them with capital letters because they are **random variables**:
 
@@ -109,7 +109,7 @@ In the election poll example $n$ is over 100 million while a typical sample size
 
 ## The sample average
 
-* A sample are the resulting obsered values we obtain when picking indivuals at random from the popuation.
+* A sample are the resulting observed values we obtain when picking individuals at random from the population.
 
 * We represent them with capital letters because they are **random variables**:
 
@@ -126,9 +126,9 @@ tldr: The distribution of the sample average is approximated by a normal distrib
 
 ## Central Limit Theorem (CLT)
 
-* If $X_1$, \dots $X_N$ are random variables that are indepent and have ths same distribution, the sum $\sum_{i=1}^N X_i$ gets closer and closer to being mormally distributed when $N$ gets very large.
+* If $X_1$, \dots $X_N$ are random variables that are independent and have the same distribution, the sum $\sum_{i=1}^N X_i$ gets closer and closer to being normally distributed when $N$ gets very large.
 
-* Because dividing a normal random variable by a constant is still normal, the CLT applies to theaverage $\frac{1}{N}\sum_{i=1}^N X_i$ as well.
+* Because dividing a normal random variable by a constant is still normal, the CLT applies to the average $\frac{1}{N}\sum_{i=1}^N X_i$ as well.
 
 * **Rule of thumb** $N\geq 30$ is considered large enough.
 
@@ -153,7 +153,7 @@ We want to to estimate $p$, the population parameter.
 
 Note that: 
 
-* Each $X$ in the sample is a Bernoulli trial becuase $\text{P}(X=1) = p$.
+* Each $X$ in the sample is a Bernoulli trial because $\text{P}(X=1) = p$.
 
 * This implies that for all $i$, $\mu_{X_i} = p$ and $\sigma_{X_i} = \sqrt{p(1-p)}$
 
@@ -169,7 +169,7 @@ $$
 \hat{p} = \frac{1}{N}\sum_{i=1}^N X_i
 $$
 
-Using what we have learned about mean and SD of combinations and rescaling we have:
+Using what we have learned about mean and SD of combinations and re-scaling we have:
 
 * $\mu_{\hat{p}} = p$
 * $\sigma_{\hat{p}} = \frac{\sigma_X}{\sqrt{N}} = \frac{\sqrt{p(1-p)}}{\sqrt{N}}$
@@ -181,7 +181,7 @@ Using what we have learned about mean and SD of combinations and rescaling we ha
 
 ## Distribution of sample proportion
 
-* $\hat{p}$ is a sum of Bernoulli trials divded by a constant. So we could use the Binomial distribution to compute $\text{P}(\hat{p} = k/N)$
+* $\hat{p}$ is a sum of Bernoulli trials divided by a constant. So we could use the Binomial distribution to compute $\text{P}(\hat{p} = k/N)$
 
 * However, in the exam they want you to use the CLT. 
 
@@ -195,7 +195,7 @@ Using what we have learned about mean and SD of combinations and rescaling we ha
 
 ## Example
 
-If I take a poll if 1000 people to get an idea of how many people are voting for Trump, what is the chance that my sample proporion $\hat{p}=0.45$ is within 1% of the actual proportion?
+If I take a poll if 1000 people to get an idea of how many people are voting for Trump, what is the chance that my sample proportion $\hat{p}=0.45$ is within 1% of the actual proportion?
 
 We are asking $\text{P}(|\hat{p} - p| < 0.01)$
 
@@ -251,7 +251,7 @@ $$
 \bar{X} = \frac{1}{N}\sum_{i=1}^N X_i
 $$
 
-Using what we have learned about mean and SD of combinations and rescaling we have:
+Using what we have learned about mean and SD of combinations and re-scaling we have:
 
 * $\mu_{\bar{X}} = \mu$
 * $\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{N}}$
@@ -274,7 +274,7 @@ CLT tells us that $\bar{X}$ is approximated by a normal distribution with mean $
 
 If I want to make probability calculations I need to know $\sigma_{\bar{X}}$, but I don't know $sigma$.
 
-For proportions we used $\sqrt{\hat{p}(1-\hat{p})}$ as an approximation of the stnard deviation $\sqrt{p(1-p)}$
+For proportions we used $\sqrt{\hat{p}(1-\hat{p})}$ as an approximation of the standard deviation $\sqrt{p(1-p)}$
 
 But when sample means are not based on Bernoulli trials, we can't do that. 
 

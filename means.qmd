@@ -6,7 +6,7 @@ Task:
 
 -   We take a sample of 36 student SAT scores.
 
--   We observe a sample average of $\bar{X} = 1100$ and a sample standard devation $s = 204$
+-   We observe a sample average of $\bar{X} = 1100$ and a sample standard deviation $s = 204$
 
 -   Provide an interval with 95% of containing the high school population average $\mu$.
 
@@ -47,7 +47,7 @@ Follows a t-distribution with $N-1$ degrees of freedom.
 
 ## Example 
 
-Let's repear the above example but $N=15$
+Let's repeat the above example but $N=15$
 
 
 All we have to do now is use the cutoff that gives us 0.95 for a t-distribution with 14 degrees of freedom.

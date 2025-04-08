@@ -12,7 +12,7 @@ Task:
 
 Solution:
 
-Our proprotion $\hat{p}$ follows a normal distribution with mean $p$ and standard deviation $\sqrt{p(1-p)/N} \approx \sqrt{0.45\times 0.55/1000} \approx 0.016$
+Our proportion $\hat{p}$ follows a normal distribution with mean $p$ and standard deviation $\sqrt{p(1-p)/N} \approx \sqrt{0.45\times 0.55/1000} \approx 0.016$
 
 Lets consider symmetric intervals with: $[\hat{p} - B, \hat{p} + B]$
 
@@ -47,7 +47,7 @@ We refer to the 0.03 as the _margin of error_ (MOE).
 
 We already knew that using $2$ would give us a 95% confidence interval.
 
-Bute what if we didn't know? Or if we wanted a 99% confidence interval?
+But what if we didn't know? Or if we wanted a 99% confidence interval?
 
 The function `invNorm` will do this for us. The impute is the area to the left. 
 
@@ -86,7 +86,7 @@ $$
 \end{aligned}
 $$
 
-When the null hypotheis holds, $\sigma_{\hat{p}} = \sqrt{0.5\times 0.5 / 100} = 0.05$
+When the null hypothesis holds, $\sigma_{\hat{p}} = \sqrt{0.5\times 0.5 / 100} = 0.05$
 
 So the p-value is $1 - \text{P}(|Z| < 0.1/0.05 = 2)$ which is a bit less than 0.05
 
@@ -145,7 +145,7 @@ $$
 
 ### p-value
 
-* Suppose we have sample sizes of 25 and 100 for the the drug and placebo group repsectively and 
+* Suppose we have sample sizes of 25 and 100 for the the drug and placebo group respectively and 
 
 * we observe $\hat{p}_1 = 0.25$ and $\hat{p}_2 = 0.15$
 
@@ -167,7 +167,7 @@ $$\frac{N_1\hat{p}_1 + N_2\hat{p}_2}{N_1+N_2} = 0.17$$
 which means $\sigma_{\hat{p}_1 - \hat{p}_2} \approx \sqrt{(0.17\times 0.83)(1/25+1/100)} \approx 0.08$
 
 
-With this we can comptue
+With this we can compute
 
 $$
 \begin{aligned}

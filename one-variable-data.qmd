@@ -8,7 +8,7 @@ The normal distribution, also known as the bell curve and as the Gaussian distri
 
 One reason for this is that approximately normal distributions occur in many situations, including gambling winnings, heights, weights, blood pressure, standardized test scores, and experimental measurement errors. 
 
-This is not for discrete random variables but **continous random variables**. If $X$ has a normal pdf it can take on any continuous value.
+This is not for discrete random variables but **continuous random variables**. If $X$ has a normal pdf it can take on any continuous value.
 Therefore $Pr(X=x)$ does not make sense anymore.
 
 The normal distribution is defined with a mathematical formula. For any interval $(a,b)$, the proportion of values in that interval can be computed using this formula:
@@ -18,7 +18,7 @@ $$\mbox{Pr}(a < x \leq b) = \int_a^b \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{1}{2}
 You don't need to memorize the formula.
 
 
-The most important characterstics is that it is completely defined by just two parameters: $\mu$ and $\sigma$. The rest of the symbols in the formula represent the interval ends, $a$ and $b$, and known mathematical constants $\pi$ and $e$. 
+The most important characteristics is that it is completely defined by just two parameters: $\mu$ and $\sigma$. The rest of the symbols in the formula represent the interval ends, $a$ and $b$, and known mathematical constants $\pi$ and $e$. 
 
 
 These two parameters, $\mu$ and $\sigma$, are referred to as the *mean* and the *standard deviation* (SD) of the distribution, respectively.

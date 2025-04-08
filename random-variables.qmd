@@ -20,7 +20,7 @@ The exam often uses short hand $p_k = \text{P}(X=k)$
 
 :::{.callout-note icon=false}
 
-Later we will need the  _cumulative distribution function_ wchih is simply deinfed by 
+Later we will need the  _cumulative distribution function_ which is simply defined by 
 
 $$
 \begin{aligned}
@@ -79,7 +79,7 @@ $$
 $$
 :::
 
-The pdf is often shown as a table or a grpah. For the graph we simply plot a bar for each $k$ going up to $p_k$.
+The pdf is often shown as a table or a graph. For the graph we simply plot a bar for each $k$ going up to $p_k$.
 
 Here is th pdf for the sum of two dice:
 
@@ -96,7 +96,7 @@ data.frame(k = k, p_k = p_k) |> ggplot(aes(k, p_k)) + geom_col() +
 ## Mean and standard deviation of a random variable
 
 The mean and standard deviation of the the distribution of a random variable $X$ are referred as the
-mean and stadnard deviation of $X$.
+mean and standard deviation of $X$.
 
 :::{.callout-note icon=false}
 
@@ -139,9 +139,9 @@ We sometimes say _the standard error of $X$_ to mean _the standard deviation of 
 
 The variance is simply the standard deviation squared $\sigma_X^2$. 
 
-* We define the variance because mathematical calculations are easier without the square root. Other than that we always use standard devatiion.
+* We define the variance because mathematical calculations are easier without the square root. Other than that we always use standard deviation.
 
-* The standard deviation has the same units as $X$. The variance has units squared which has no interpretation. What is kilograms sauared or dollars squared?
+* The standard deviation has the same units as $X$. The variance has units squared which has no interpretation. What is kilograms squared or dollars squared?
 :::
 
 
@@ -155,23 +155,25 @@ The variance is simply the standard deviation squared $\sigma_X^2$.
 
 ## Bernoulli trial definition
 
-* $X$ is either 1 (success) or failiure (0). 
+* $X$ is either 1 (success) or failure (0). 
 
 * Completely defined by the probability of success: $\text{P}(X=1) = p$.
 
 * The probability of failure is simply $1-p$, sometimes called $q$.
 :::
 
-Bernoulli trias are popular because we can use them to count random things: number of heads when we toss coins, number of lottery winners, number of defective light bulbs made in a day by a factory, number of patients that got cured by a drug, number of COVID-19 hospitalizations in a day, and so on.
+Bernoulli trials are popular because we can use them to count random things: number of heads when we toss coins, number of lottery winners, number of defective light bulbs made in a day by a factory, number of patients that got cured by a drug, number of COVID-19 hospitalizations in a day, and so on.
 
 
 :::{.callout-note icon=false}
 
 ## Bernoulli trial mean and SD
 
-If $X$ is a Bernoulli trial 
+If $X$ is a Bernoulli trial:
+
 * $\mu_X = p$ 
 * $\sigma_X = \sqrt{p(1-p)}$
+
 :::
 
 You need to memorize this but here is the derivation
@@ -215,7 +217,8 @@ Need to memorize these (they are intuitive). If $X$ and $Y$ random variables and
 
 * $\mu_{X+Y} = \mu_{X}+ \mu_{Y}$
 * $\mu_{X+a} = \mu_{X} + a$
-* $\mu_{aX} = a \mu_{X}$*
+* $\mu_{aX} = a \mu_{X}$
+
 :::
 
 
@@ -223,7 +226,7 @@ Need to memorize these (they are intuitive). If $X$ and $Y$ random variables and
 
 ## Example
 
-If $X$ and $Y$ are two random varialbes, what is $\mu_{X-Y}$
+If $X$ and $Y$ are two random variables, what is $\mu_{X-Y}$?
 
 $$
 \begin{aligned}
@@ -242,7 +245,7 @@ For these we use the variance. But you can take square root at the end.
 
 * $\sigma^2_{X+a} = \sigma^2_{X}$:  shifting does not change variability.
 * $\sigma^2_{aX} = a^2\sigma^2_{X} \implies \sigma_{aX} = |a|\sigma_{X}$: change of scale also scales measure of variability.
-* **If $X$ and $Y$** are independnet, $\sigma^2_{X+Y} = \sigma_X^2 + \sigma_Y^2 \implies \sigma_{X+Y} = \sqrt{\sigma_X^2 + \sigma_Y^2}$:
+* **If $X$ and $Y$** are independent, $\sigma^2_{X+Y} = \sigma_X^2 + \sigma_Y^2 \implies \sigma_{X+Y} = \sqrt{\sigma_X^2 + \sigma_Y^2}$:
 Adding two things that vary, varies more.
 :::
 
@@ -251,7 +254,7 @@ Adding two things that vary, varies more.
 
 ## Example
 
-If $X$ and $Y$ are two **independent** random varialbes, what is $\sigma_{X-Y}$
+If $X$ and $Y$ are two **independent** random variables, what is $\sigma_{X-Y}$?
 
 
 $$
@@ -268,7 +271,7 @@ $$
 \sigma_{X-Y} = \sqrt{\sigma^2_{X} + \sigma^2_{-Y}}
 $$
 
-Interpretation: Subtracting two variables that vary independenty has more variability than each.
+Interpretation: Subtracting two variables that vary independently has more variability than each.
 :::
 
 
@@ -284,7 +287,7 @@ It tells us the number of successes and it is also a random variable.
 
 Examples: 
 
-* Number of heads if toss coins
+* Number of heads if I toss coins
 
 * Number of free throws curry makes 
 
@@ -331,11 +334,11 @@ $$
 $$
 
 This is called the binomial distribution and can be computed in AP-test with `binompdf(n, p, k)` and
-the cdf with `binomcdf(n,p,k)`
+the CDF with `binomcdf(n,p,k)`
 :::
 
 
-The cdf is useful for answering questions such as "what is the chance that we see 3 heads or less?" or "what is the chance we see 4,5,6 heads?"
+The CDF is useful for answering questions such as "what is the chance that we see 3 heads or less?" or "what is the chance we see 4,5,6 heads?"
 
 
 :::{.callout-tip icon=false}
@@ -359,19 +362,21 @@ data.frame(k = k, p_k = p_k) |> ggplot(aes(k, p_k)) + geom_col() +
 
 ## Geometric distribution
 
-It is also common ask how many trials do I need to see a success. For example, how many free throws will Curry take until he misses.
+It is also common to ask how many trials do I need to see a success. For example, how many free throws will Curry take until he misses.
 
 
 :::{.callout-note icon=false}
 
 ## Geometric distribution
 
-Define a random variable as $X$=number of trials we see before the first success. 
+Define a random variable as $X$=number of trials if we stop after the first success. 
 
 It is not hard to see that this is:
 $$
 \text{P}(X=k) = (1-p)^k p
 $$
+
+This is called the Geometric distribution, defined for $k=1,2,\dots,\infty$.
 :::
 
 
@@ -403,7 +408,7 @@ $$
 
 Then Z is approximated by standard normal
 
-Here is a $n=10, p=0.5$  binomial with a normal with mean $np = 5$ and standard devataion $\sqrt{np(1-p)} \approx 1.6$ added in blue
+Here is a $n=10, p=0.5$  binomial with a normal with mean $np = 5$ and standard deviation $\sqrt{np(1-p)} \approx 1.6$ added in blue
 
 ```{r}
 n <- 10
@@ -435,7 +440,7 @@ data.frame(k = k, p_k = p_k) |>
 
 ## Example
 
-If I toss 100 coins, what is the probability that I see between than 45 and 55 heads?
+If I toss 100 coins, what is the probability that I see between 45 and 55 heads?
 
 We can use the binomial to answer this exactly `binomcdf(100, 0.5, 55) - binomcdf(100, 0.5, 44)` which is 
 `r pbinom(55, 100, 0.5) - pbinom(44, 100, 0.5)`.
