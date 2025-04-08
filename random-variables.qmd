@@ -1,0 +1,466 @@
+# Random Variables and Probability Distributions
+
+## Discrete random variables
+
+:::{.callout-note icon=false}
+
+## Discrete random variable
+
+$X$ can have different outcomes, each one with a probability. Discrete means the possible outcomes are finite.
+:::
+
+:::{.callout-note icon=false}
+
+## Probability density function (pdf) 
+
+Defines the probability $\text{P}(X = k)$ for each outcome $k$
+
+The exam often uses short hand $p_k = \text{P}(X=k)$
+:::
+
+:::{.callout-note icon=false}
+
+Later we will need the  _cumulative distribution function_ wchih is simply deinfed by 
+
+$$
+\begin{aligned}
+F(a) &= \text{P}(X <= a)\\
+&= \sum_{x_i \leq a} \text{P}(X=x_i)
+\end{aligned}
+$$
+
+
+Interpretation $F(a)$ tells us the probability of $X$ being less than $a$ for any $a$. 
+:::
+
+
+:::{.callout-tip icon=false}
+
+
+## Example 1: Fair coin
+
+Define $X=0$ for tails and $X=1$ for heads
+
+
+$$
+\text{P}(X=0) = 1/2\\
+\text{P}(X=1) = 1/2
+$$ 
+:::
+
+
+:::{.callout-tip icon=false}
+
+## Example 2: A die 
+
+$$
+\text{P}(X=1) = 1/6\\
+\text{P}(X=2) = 1/6\\
+\vdots\\
+\text{P}(X=6) = 1/6
+$$
+:::
+
+
+:::{.callout-tip icon=false}
+
+
+## Example 3:  Sum of two dice
+
+$$
+\text{P}(X=2)  = 1/36, \\
+\text{P}(X=3)  = 2/36,
+\\
+\vdots
+\\\text{P}(X=7) = 1/6
+\\
+\vdots\\
+\text{P}(X=12)  = 1/36
+$$
+:::
+
+The pdf is often shown as a table or a grpah. For the graph we simply plot a bar for each $k$ going up to $p_k$.
+
+Here is th pdf for the sum of two dice:
+
+```{r}
+library(ggplot2)
+k <- 2:12
+p_k <- c(1:6,5:1)
+p_k <- p_k/sum(p_k)
+data.frame(k = k, p_k = p_k) |> ggplot(aes(k, p_k)) + geom_col() +
+  scale_x_continuous(breaks = 2:12)
+```
+
+
+## Mean and standard deviation of a random variable
+
+The mean and standard deviation of the the distribution of a random variable $X$ are referred as the
+mean and stadnard deviation of $X$.
+
+:::{.callout-note icon=false}
+
+## Mean
+
+$$
+\mu_X = \sum_{i=1}^n x_i \, \text{P}(X=x_i)
+$$
+
+With $$x_1, \dots, x_n$$ all the possible outcomes.
+:::
+
+
+For any random variable $*$ we use the symbol $\mu_{*}$ to represent it's mean. It can be any random variable and we don't always use the name $X$.
+
+
+:::{.callout-note icon=false}
+
+## The standard deviation (SD)
+
+The standard de deviation of the distribution of a random variable $X$ is defined as:
+
+
+$$
+\sigma_X = \sqrt{\sum_{i=1}^n (x_i-\mu_X)^2 \, \text{P}(X=x_i)}
+$$
+:::
+
+We use $\sigma_{*}$ just like $\mu_{*}$
+
+You can think of this as the typical distance you see $X$ from the mean $\mu_X$. For the heads or tails this is 1/2 since both 0 and 1 are1/2 from the mean 1/2.
+
+:::{.callout-note}
+We sometimes say _the standard error of $X$_ to mean _the standard deviation of the distribution of a random variable $X$_.
+:::
+
+:::{.callout-note icon=false}
+
+## The variance
+
+The variance is simply the standard deviation squared $\sigma_X^2$. 
+
+* We define the variance because mathematical calculations are easier without the square root. Other than that we always use standard devatiion.
+
+* The standard deviation has the same units as $X$. The variance has units squared which has no interpretation. What is kilograms sauared or dollars squared?
+:::
+
+
+## Bernoulli trials
+
+* A super common example of a useful random variable are Bernoulli trials.
+
+* These are either a 0 (failure) or 1 (success) and each trial is independent of of others.
+
+:::{.callout-note icon=false}
+
+## Bernoulli trial definition
+
+* $X$ is either 1 (success) or failiure (0). 
+
+* Completely defined by the probability of success: $\text{P}(X=1) = p$.
+
+* The probability of failure is simply $1-p$, sometimes called $q$.
+:::
+
+Bernoulli trias are popular because we can use them to count random things: number of heads when we toss coins, number of lottery winners, number of defective light bulbs made in a day by a factory, number of patients that got cured by a drug, number of COVID-19 hospitalizations in a day, and so on.
+
+
+:::{.callout-note icon=false}
+
+## Bernoulli trial mean and SD
+
+If $X$ is a Bernoulli trial 
+* $\mu_X = p$ 
+* $\sigma_X = \sqrt{p(1-p)}$
+:::
+
+You need to memorize this but here is the derivation
+
+$$
+\begin{aligned}
+\mu_X &= 0 \times \text{P}(X=0) + 1 \times \text{P}(X=1)\\
+&= p 
+\end{aligned}
+$$
+
+and
+
+$$
+\begin{aligned}
+\sigma_X^2 &= (0 - p)^2 (1-p) + (1-p)^2 p\\
+&= (1-p)p(p+1-p)\\
+&= p(1-p)
+\end{aligned}
+$$
+
+
+
+:::{.callout-tip icon=false}
+
+## Examples
+* Tossing coins, $p=0.5$
+* Steph Curry free throws, $p=0.9$
+* Lottery winners, $p < 10^{-6}$
+* Celtics win a game in NBA finals $p = ?$
+
+:::
+
+## Combining, shifting, and scaling random variables
+
+:::{.callout-note icon=false}
+
+## Mean of linear combinations
+
+Need to memorize these (they are intuitive). If $X$ and $Y$ random variables and $a$ is a constant:
+
+* $\mu_{X+Y} = \mu_{X}+ \mu_{Y}$
+* $\mu_{X+a} = \mu_{X} + a$
+* $\mu_{aX} = a \mu_{X}$*
+:::
+
+
+:::{.callout-tip icon=false}
+
+## Example
+
+If $X$ and $Y$ are two random varialbes, what is $\mu_{X-Y}$
+
+$$
+\begin{aligned}
+\mu_{X-Y} &= \mu_{X} + \mu_{-Y}\\
+&= \mu_{X}+ -1\mu_{Y}\\
+&= \mu_{X} - \mu_{Y} 
+\end{aligned}
+$$
+:::
+
+:::{.callout-note icon=false}
+
+## SD of linear combinations
+
+For these we use the variance. But you can take square root at the end.
+
+* $\sigma^2_{X+a} = \sigma^2_{X}$:  shifting does not change variability.
+* $\sigma^2_{aX} = a^2\sigma^2_{X} \implies \sigma_{aX} = |a|\sigma_{X}$: change of scale also scales measure of variability.
+* **If $X$ and $Y$** are independnet, $\sigma^2_{X+Y} = \sigma_X^2 + \sigma_Y^2 \implies \sigma_{X+Y} = \sqrt{\sigma_X^2 + \sigma_Y^2}$:
+Adding two things that vary, varies more.
+:::
+
+
+:::{.callout-tip icon=false}
+
+## Example
+
+If $X$ and $Y$ are two **independent** random varialbes, what is $\sigma_{X-Y}$
+
+
+$$
+\begin{aligned}
+\sigma^2_{X-Y} &= \sigma^2_{X} + \sigma^2_{-Y}\\
+&= \sigma^2_{X}+ (-1)^2\sigma_{Y}\\
+&= \sigma^2_{X} + \sigma^2_{Y}
+\end{aligned} 
+$$
+
+Which implies 
+
+$$
+\sigma_{X-Y} = \sqrt{\sigma^2_{X} + \sigma^2_{-Y}}
+$$
+
+Interpretation: Subtracting two variables that vary independenty has more variability than each.
+:::
+
+
+## Binomial distribution
+
+Another popular random variable is the sum of Bernoulli trials.
+
+$$
+S = \sum_{i=1}^n X_i
+$$
+
+It tells us the number of successes and it is also a random variable.
+
+Examples: 
+
+* Number of heads if toss coins
+
+* Number of free throws curry makes 
+
+:::{.callout-tip icon=false}
+
+## Example
+
+What is  $\mu_S$?
+
+$$
+\begin{aligned}
+\mu_S &= \mu_{X_1+\dots+X_n}\\
+&= \mu_{X_1}+\dots+\mu_{X_n}\\
+&= np
+\end{aligned}
+$$
+
+
+What is $\sigma_S$?
+
+$$
+\begin{aligned}
+\sigma^2_S &= \sigma^2_{X_1+\dots+X_n}\\
+&= \sigma^2_{X_1}+\dots+\sigma^2_{X_n}\\
+&= np(1-p)
+\end{aligned}
+$$
+This implies
+
+$$
+\sigma_S=\sqrt{np(1-p)}
+$$
+:::
+
+
+:::{.callout-note icon=false}
+
+## Binomial pdf
+
+We can compute the pdf for the sum of $n$ trials:
+
+$$
+\text{P}(S = k)  = \binom{n}{k} p^k (1-p)^{n-k}
+$$
+
+This is called the binomial distribution and can be computed in AP-test with `binompdf(n, p, k)` and
+the cdf with `binomcdf(n,p,k)`
+:::
+
+
+The cdf is useful for answering questions such as "what is the chance that we see 3 heads or less?" or "what is the chance we see 4,5,6 heads?"
+
+
+:::{.callout-tip icon=false}
+
+## Example
+
+
+pdf of the number of heads when tossing 10 coins:
+
+
+```{r}
+library(ggplot2)
+k <- 0:10
+p_k <- dbinom(k, 10, 0.5)
+data.frame(k = k, p_k = p_k) |> ggplot(aes(k, p_k)) + geom_col() +
+  scale_x_continuous(breaks = 2:12)
+```
+:::
+
+
+
+## Geometric distribution
+
+It is also common ask how many trials do I need to see a success. For example, how many free throws will Curry take until he misses.
+
+
+:::{.callout-note icon=false}
+
+## Geometric distribution
+
+Define a random variable as $X$=number of trials we see before the first success. 
+
+It is not hard to see that this is:
+$$
+\text{P}(X=k) = (1-p)^k p
+$$
+:::
+
+
+:::{.callout-tip icon=false}
+
+### Example:  number of free thows before Curry misses.
+
+Here miss is the success we are waiting for so $p=0.1$
+```{r}
+library(ggplot2)
+k <- 0:30
+p_k <- dgeom(k, 0.1)
+data.frame(k = k, p_k = p_k) |> ggplot(aes(k, p_k)) + geom_col() 
+```
+
+We use this to calculate, for example, that the chance of seeing 10 or more free throws in a row to start the game is `1 - geomcdf(10, .1)` = `r 1-pgeom(10,.1)`
+:::
+
+
+## Approximation to Binomial 
+
+When the number of trials is large binomial is very well approximated by the normal distribution.
+
+Define
+
+$$
+Z = \frac{S - np}{\sqrt{np(1-p)}}
+$$
+
+Then Z is approximated by standard normal
+
+Here is a $n=10, p=0.5$  binomial with a normal with mean $np = 5$ and standard devataion $\sqrt{np(1-p)} \approx 1.6$ added in blue
+
+```{r}
+n <- 10
+p <- 0.5
+k <- 0:n
+p_k <- dbinom(k, n, p)
+data.frame(k = k, p_k = p_k) |> 
+  ggplot(aes(k, p_k)) + geom_col() + 
+  stat_function(fun = dnorm, 
+                args = list(mean = n*p, sd = sqrt(n*p*(1-p))), color = "blue", linetype = "dashed", size = 1)
+```
+
+Here it is for 100. In this case $np = 50$ and $\sqrt{np(1-p)} = 5$
+
+```{r}
+n <- 100
+p <- 0.5
+k <- 0:n
+p_k <- dbinom(k, n, p)
+data.frame(k = k, p_k = p_k) |> 
+  ggplot(aes(k, p_k)) + geom_col() + 
+  stat_function(fun = dnorm, 
+                args = list(mean = n*p, sd = sqrt(n*p*(1-p))), color = "blue", linetype = "dashed", size = 1)
+```
+
+
+
+:::{.callout-tip icon=false}
+
+## Example
+
+If I toss 100 coins, what is the probability that I see between than 45 and 55 heads?
+
+We can use the binomial to answer this exactly `binomcdf(100, 0.5, 55) - binomcdf(100, 0.5, 44)` which is 
+`r pbinom(55, 100, 0.5) - pbinom(44, 100, 0.5)`.
+
+But we can also use the normal distribution:
+
+$$
+\begin{aligned}
+\text{P}(45 \leq S \leq 55) &= \text{P}(44.5 < S < 55.5)\\
+&= \text{P}(44.5 - 50 < S - 50 < 55.5-50)\\
+&= \text{P}\left(\frac{44.5 - 50}{\sqrt{100\times 0.5\times 0.5}} < \frac{S - 50}{\sqrt{100\times 0.5\times 0.5}}< \frac{55.5-50}{\sqrt{100\times 0.5\times 0.5}}\right) \\
+&= \text{P}(-1.1 < Z < 1.1 )
+\end{aligned}
+$$
+
+
+We use `normalcdf(-1.1 1.1, 0, 1)` = `r pnorm(1.1)-pnorm(-1.1)`
+
+Which is almost identical to the binomial result.
+
+:::
+
+
+:::{.callout-note}
+Important to understand why we to the first $\text{P}(45 \leq S \leq 55) = \text{P}(44.5 < S < 55.5)$. The normal distribution is continuous so it can't be equal to anything. So we do the adjustment to make sure we include 45 and 55 in the approximation.
+::: 
+
+

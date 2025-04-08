@@ -1,0 +1,35 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "AP Stats Review"
+  subtitle: "DRAFT – Not Final"
+  author: "Rafael A. Irizarry"
+  date: today
+  date-format: "MMMM D, YYYY"
+  downloads: [pdf]
+  chapters: 
+    - index.qmd
+    - one-variable-data.qmd
+    - random-variables.qmd
+    - sampling-distributions.qmd
+    - proportions.qmd
+    - means.qmd
+
+format:
+  html:
+    theme: cosmo
+    fig-height: 3
+    fig-width: 4
+  pdf:
+    documentclass: scrreprt
+    fig-height: 3
+    fig-width: 4
+    
+execute:
+  echo: false
+  
+editor: source
+
+

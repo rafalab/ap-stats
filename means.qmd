@@ -1,0 +1,132 @@
+# Means
+
+## Confidence intrval
+
+Task:
+
+-   We take a sample of 36 student SAT scores.
+
+-   We observe a sample average of $\bar{X} = 1100$ and a sample standard devation $s = 204$
+
+-   Provide an interval with 95% of containing the high school population average $\mu$.
+
+Solution:
+
+The sample average $\bar{X}$ follows a normal distribution with mean $\mu$ and standard deviation $\sigma/\sqrt{N} \approx 204 / 6 = 34$
+
+As with proportions we have 
+$$
+\begin{aligned}
+\text{P}(\mu \in [\bar{X} - 2 \sigma_{\bar{X}}, \bar{X} + 2 \sigma_{\bar{X}}]) &= \text{P}(\bar{X} -  2 \sigma_{\bar{X}} < \mu < \bar{X} +  2 \sigma_{\bar{X}}]) \\
+&= \text{P}(-  2 \sigma_{\bar{X}} < \bar{X} - \mu < 2 \sigma_{\bar{X}})\\
+&= \text{P}\left(-2  < \frac{\bar{X} - \mu}{\sigma_{\bar{X}}} < 2\right)\\
+&= \text{P}(-2 < Z < 2)\\
+&=0.95
+\end{aligned}
+$$
+
+So our interval is $1100 \pm 68$
+
+## t-test
+
+When $N<30$ we can't use CLT. 
+
+So what is the distribution of $\bar{X}$?
+
+If the population values are also approximately normal, as they are for SAT scores, then 
+
+$$
+t = \frac{\bar{X} - \mu}{s/\sqrt{N}}
+$$
+Follows a t-distribution with $N-1$ degrees of freedom.
+
+
+
+:::{.callout-tip icon=false}
+
+
+## Example 
+
+Let's repear the above example but $N=15$
+
+
+All we have to do now is use the cutoff that gives us 0.95 for a t-distribution with 14 degrees of freedom.
+
+You can use `invT` with area to the left and degrees of freedom.
+
+So instead of 2 we use `invT(0.975, 14)` which is `r qt(0.975, 14)`, a little bit bigger than 2.
+
+We make our confidence interval
+
+$$
+1100 \pm 2.14 \times 34
+$$
+
+or
+
+$$
+1100 \pm 73
+$$
+:::
+
+## Difference of two means
+
+
+### Confidence interval
+
+-  Are the mean SAT scores in two high schools different?
+
+-  The sample averages are $\bar{X}_1 = 1200$ and $\bar{X}_2 = 1100$ and the sample standard deviations are $s_1 = 200$ and $s_2 = 180$
+
+-   The sample sizes are $N_1=30$ and $N_2=35$
+
+-   Provide a 95% confidence interval
+
+We know the difference $\bar{X}_1 - \bar{X}_2$ had the following mean and SD:
+
+- $\mu_{\bar{X}_1 - \bar{X}_2} = \mu_1 - mu_2$
+- $\sigma_{\bar{X}_1 - \bar{X}_2} = \sqrt{\frac{\sigma_1^2}{N_1} + \frac{\sigma_2^2}{N_2}}$
+
+To construct a 95% confidence interval we use 
+$\bar{X}_1 - \bar{X}_2 \pm \sigma_{\bar{X}_1 - \bar{X}_2}$
+
+We approximate  $\sigma_1$ and $\sigma_2$ with $s_1$ and $s_2$ 
+
+$$
+\sigma_{\bar{X}_1 - \bar{X}_2} \approx  \sqrt{ \frac{s_1^2}{N_1} + \frac{s_2^2}{N_2}}
+$$
+
+The sample sizes are large enough that we can use CLT so the confidence interval is 
+
+$$
+\bar{X}_1 - \bar{X}_2 \pm 2 \sqrt{ \frac{s_1^2}{N_1} + \frac{s_2^2}{N_2}}
+$$
+
+$$
+\bar{X}_1 - \bar{X}_2 = 100
+$$
+
+and 
+
+$$
+2 \sqrt{ \frac{s_1^2}{N_1} + \frac{s_2^2}{N_2}} = 2 \sqrt{ 200^2/30 + 180^2/35} \approx 48
+$$
+
+So the confidence interval is
+
+$$
+100 \pm 48
+$$
+
+
+### p-value
+
+Is the difference we saw significant?
+
+We already computed $\sigma_{\bar{X}_1 - \bar{X_2}} \approx 24$
+
+$$
+\text{P}(|\bar{X}_1 - \bar{X_2}| > 100) = \text{P}(|Z| > 100/47) \approx 0.03
+$$
+
+We reject.

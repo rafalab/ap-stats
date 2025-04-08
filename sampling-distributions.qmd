@@ -1,0 +1,288 @@
+# Sampling distributions
+
+We want to learn about populations from samples.
+
+## Population and parameters
+
+:::{.callout-note icon=false}
+
+## Population
+
+The population is defined by the list of numbers $x_1, x_2, \dots, x_n$.
+
+The $x$s are **not random**. 
+
+We can't see the entire population but we want to learn about it.
+:::
+
+
+:::{.callout-tip icon=false}
+
+## Example 1: Trump voters
+
+The population is the people who will vote on election day. Trump voters get a 1 and others get a 0. So all the $x$s are either 0 or 1.
+
+:::
+
+
+:::{.callout-tip icon=false}
+
+
+## Example 2: High school SAT scores
+
+The population are all the students that took SAT. The $x$s are the scores for each student.
+:::
+
+
+:::{.callout-note icon=false}
+
+## Population parameters
+
+The population parameters are summaries of the $x_1, x_2, \dots, x_n$ we are interested in.
+
+In the AP test we almost always care about the **population mean**:
+
+$$
+\mu = \frac{1}{n}\sum_{i=1}^n x_i
+$$
+
+Most of this chapter is about _estimating_ the population mean $mu$.
+
+Another parameter we will need is the **population standard deviation**:
+
+$$
+\sigma = \sqrt{\frac{1}{n}\sum_{i=1}^n (x_i-\mu)^2}
+$$
+:::
+
+
+:::{.callout-note icon=false}
+
+## Population proportion
+
+When the $x$s are 0s or 1s, then the population mean is equivalent to the proportion of 1s.
+
+In this case we use the sybol $p$ instead of $\mu$.
+
+And the standard deviation can be shown to be $\sqrt{p(1-p)}$
+:::
+
+
+## The sample average
+
+
+The strategy to estimate the population parameter is to take a random sample: we can't examin all the sample so we examine a much smaller subset.
+
+We learn that we can learn a lot about population parameters from samples.
+
+By far the most common example is using a _sample average_ to estimate a _population mean_. 
+
+
+:::{.callout-note icon=false}
+
+## A sample
+
+* A sample are the resulting obsered values we obtain when picking indivuals at random from the popuation.
+
+* We represent them with capital letters because they are **random variables**:
+
+$$X_1, \dots, X_N$$
+:::
+
+
+:::{.callout-note icon=false}
+
+## The sample size 
+
+$N$ is called the sample size.
+
+Do not confuse it with the number of individuals in the population $n$.
+
+In the election poll example $n$ is over 100 million while a typical sample size $N$ is 1,000 or less.
+
+:::
+
+
+
+
+:::{.callout-note icon=false}
+
+## The sample average
+
+* A sample are the resulting obsered values we obtain when picking indivuals at random from the popuation.
+
+* We represent them with capital letters because they are **random variables**:
+
+$$X_1, \dots, X_N$$
+* $N$ is called the sample size.
+
+:::
+
+## Central Limit Theorem
+
+tldr: The distribution of the sample average is approximated by a normal distribution when the sample size is large.
+
+:::{.callout-note icon=false}
+
+## Central Limit Theorem (CLT)
+
+* If $X_1$, \dots $X_N$ are random variables that are indepent and have ths same distribution, the sum $\sum_{i=1}^N X_i$ gets closer and closer to being mormally distributed when $N$ gets very large.
+
+* Because dividing a normal random variable by a constant is still normal, the CLT applies to theaverage $\frac{1}{N}\sum_{i=1}^N X_i$ as well.
+
+* **Rule of thumb** $N\geq 30$ is considered large enough.
+
+:::
+
+
+
+## Proportions
+
+A very common application of statistics is estimating a population proportion
+
+Examples:
+
+* Proportion of voters voting for trump. 
+* Proportion of patients that a drug cures.
+* Proportion of adults with a job.
+
+
+We want to to estimate $p$, the population parameter.
+
+
+
+Note that: 
+
+* Each $X$ in the sample is a Bernoulli trial becuase $\text{P}(X=1) = p$.
+
+* This implies that for all $i$, $\mu_{X_i} = p$ and $\sigma_{X_i} = \sqrt{p(1-p)}$
+
+* Because we sample with replacement the $X$s are independent.
+
+:::{.callout-note icon=false}
+
+## Mean and SD of sample proportion
+
+The sample proportion is 
+
+$$
+\hat{p} = \frac{1}{N}\sum_{i=1}^N X_i
+$$
+
+Using what we have learned about mean and SD of combinations and rescaling we have:
+
+* $\mu_{\hat{p}} = p$
+* $\sigma_{\hat{p}} = \frac{\sigma_X}{\sqrt{N}} = \frac{\sqrt{p(1-p)}}{\sqrt{N}}$
+
+:::
+
+
+:::{.callout-note icon=false}
+
+## Distribution of sample proportion
+
+* $\hat{p}$ is a sum of Bernoulli trials divded by a constant. So we could use the Binomial distribution to compute $\text{P}(\hat{p} = k/N)$
+
+* However, in the exam they want you to use the CLT. 
+
+* $\hat{p}$ is approximated by normal distribution with mean $p$ and SD $\sqrt{p(1-p)/n}$
+
+
+:::
+
+
+:::{.callout-tip icon=false}
+
+## Example
+
+If I take a poll if 1000 people to get an idea of how many people are voting for Trump, what is the chance that my sample proporion $\hat{p}=0.45$ is within 1% of the actual proportion?
+
+We are asking $\text{P}(|\hat{p} - p| < 0.01)$
+
+Let's figure it out:
+
+$$
+\begin{aligned}
+\text{P}(|\hat{p} - p| < 0.01) &= \text{P}(-0.01 < \hat{p} - p < 0.01)\\
+&=\text{P}\left(\frac{-0.01}{\sqrt{\frac{p(1-p)}{N}}}< \frac{\hat{p} - p}{{\sqrt{\frac{p(1-p)}{N}}}} < \frac{0.01}{{\sqrt{\frac{p(1-p)}{N}}}}\right)\\
+&=\text{P}\left(\sqrt{1000}\frac{-0.01}{\sqrt{p(1-p)}}< Z < \sqrt{1000}\frac{0.01}{\sqrt{p(1-p)}}\right)
+\end{aligned}
+$$
+
+I don't know $p$ but in the exam they want you to stick in $\hat{p}$ for the SD calculation. So $\sqrt{1000/(0.45\times .55)}\approx 63.5$
+
+so we have $\text{P}(0.645 < Z < 0.645)$ or `normcdf(-0.645, 0.645, 0, 1)` which is `r pnorm(0.645)-pnorm(-0.645)`
+:::
+
+:::{.callout-tip}
+In the exam compute the standard deviation $\sqrt{p(1-p)/N}$ first and stick that in the calculations instead of the formula.
+:::
+
+
+## Means
+
+
+Another common application of statistics is estimating a population mean
+
+Examples:
+
+* What is the average SAT score in a high school?
+* What is the average blood pressure for people taking a drug?
+
+
+We want to to estimate $\mu$, the population parameter.
+
+Note that 
+
+
+* Each $X$ in the sample has the same distribution $\text{P}(X=x_i) = 1/n$ for all $i$.
+
+* This implies that for all $i$, $\mu_{X_i} = \mu$ and $\sigma_{X_i} = \sigma$
+
+* Because we sample with replacement the $X$s are independent.
+
+:::{.callout-note icon=false}
+
+## Mean and SD of sample average
+
+The sample average is 
+
+$$
+\bar{X} = \frac{1}{N}\sum_{i=1}^N X_i
+$$
+
+Using what we have learned about mean and SD of combinations and rescaling we have:
+
+* $\mu_{\bar{X}} = \mu$
+* $\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{N}}$
+
+:::
+
+
+:::{.callout-note icon=false}
+
+## Distribution of sample average
+
+CLT tells us that $\bar{X}$ is approximated by a normal distribution with mean $\mu$ and SD $\sqrt{\sigma/n}$
+
+:::
+
+
+:::{.callout-note icon=false}
+
+## Sample standard deviation
+
+If I want to make probability calculations I need to know $\sigma_{\bar{X}}$, but I don't know $sigma$.
+
+For proportions we used $\sqrt{\hat{p}(1-\hat{p})}$ as an approximation of the stnard deviation $\sqrt{p(1-p)}$
+
+But when sample means are not based on Bernoulli trials, we can't do that. 
+
+Instead we use the sample standard deviation.
+
+$$
+s = \sqrt{\frac{1}{N-1}\sum_{i=1}^N(X-\bar{X})^2}
+$$
+:::
+
+

@@ -1,0 +1,5 @@
+# Preface {.unnumbered}
+
+
+These are draft notes intended to support review for AP Statistics. They are a work in progress and may change frequently as material is added or revised. They have not been fully proofread and are provided *as is*, without any guarantees regarding completeness or accuracy.
+

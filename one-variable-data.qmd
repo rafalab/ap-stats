@@ -1,0 +1,60 @@
+# One varialbe data
+
+
+
+## The normal distribution
+
+The normal distribution, also known as the bell curve and as the Gaussian distribution, is one of the most famous mathematical concepts in history. 
+
+One reason for this is that approximately normal distributions occur in many situations, including gambling winnings, heights, weights, blood pressure, standardized test scores, and experimental measurement errors. 
+
+This is not for discrete random variables but **continous random variables**. If $X$ has a normal pdf it can take on any continuous value.
+Therefore $Pr(X=x)$ does not make sense anymore.
+
+The normal distribution is defined with a mathematical formula. For any interval $(a,b)$, the proportion of values in that interval can be computed using this formula:
+
+$$\mbox{Pr}(a < x \leq b) = \int_a^b \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{1}{2}\left( \frac{x-\mu}{\sigma} \right)^2} \, dx$$
+
+You don't need to memorize the formula.
+
+
+The most important characterstics is that it is completely defined by just two parameters: $\mu$ and $\sigma$. The rest of the symbols in the formula represent the interval ends, $a$ and $b$, and known mathematical constants $\pi$ and $e$. 
+
+
+These two parameters, $\mu$ and $\sigma$, are referred to as the *mean* and the *standard deviation* (SD) of the distribution, respectively.
+
+
+The distribution is symmetric, centered at $\mu$, and most values (about 95%) are within $2\sigma$ from $\mu$. Here is what the normal distribution looks like when the $\mu = 0$ and $\sigma = 1$:
+
+```{r summaries-normal-distribution-density, echo = FALSE}
+library(ggplot2)
+m <- 0; s <- 1
+tmp <- data.frame(x = seq(-4, 4,len = 50)*s + m)
+tmp$density = with(tmp, dnorm(x, m, s))
+tmp |> ggplot(aes(x,density)) + geom_line()
+```
+
+
+If $\mu = 0$ and $\sigma = 1$ it is called **standard**.
+
+Memorize the following: For a standard normal random variable $Z$:
+
+* 68% are between -1 and 1
+* 95% are between -2 and 2
+* 99.7% between -3 and 3
+
+You can use the `normalcdf` function to obtain these probabilities
+
+* $\text{P}(a < Z < b)$ is `normalcdf(a,b,0,1)`, 0 and 1 are mean and SD, respectively 
+* $\text{P}(Z < a)$ is `normalcdf(-1E99,a,0,1)`. -1E99 is $-\infty$
+
+
+Also memorize:
+
+* If $Z$ is normal and $a$ is a constant $aZ$ is normal.
+* If $Z$ is normal and $b$ is a constant $Z+b$ is normal.
+* If $Z$ is normal and $a,b$ are a constant $aZ+b$ is normal.
+* If $Z$ and $W$ are normal and $Z+W$ is normal.
+
+
+
