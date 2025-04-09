@@ -16,7 +16,8 @@ book:
     - sampling-distributions.qmd
     - proportions.qmd
     - means.qmd
-
+    - goodness-of-fit.qmd
+    - slopes.qmd
 format:
   html:
     theme: cosmo

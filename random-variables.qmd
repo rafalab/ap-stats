@@ -43,8 +43,10 @@ Define $X=0$ for tails and $X=1$ for heads
 
 
 $$
+\begin{aligned}
 \text{P}(X=0) = 1/2\\
 \text{P}(X=1) = 1/2
+\end{aligned}
 $$ 
 :::
 
@@ -54,10 +56,12 @@ $$
 ## Example 2: A die 
 
 $$
-\text{P}(X=1) = 1/6\\
-\text{P}(X=2) = 1/6\\
-\vdots\\
-\text{P}(X=6) = 1/6
+\begin{aligned}
+\text{P}(X=1) &= 1/6\\
+\text{P}(X=2) &= 1/6\\
+&\vdots\\
+\text{P}(X=6) &= 1/6
+\end{aligned}
 $$
 :::
 
@@ -68,14 +72,14 @@ $$
 ## Example 3:  Sum of two dice
 
 $$
-\text{P}(X=2)  = 1/36, \\
-\text{P}(X=3)  = 2/36,
-\\
-\vdots
-\\\text{P}(X=7) = 1/6
-\\
-\vdots\\
-\text{P}(X=12)  = 1/36
+\begin{aligned}
+\text{P}(X=2)  &= 1/36, \\
+\text{P}(X=3)  &= 2/36\\
+&\vdots\\
+\text{P}(X=7) &= 1/6\\
+&\vdots\\
+\text{P}(X=12)  &= 1/36
+\end{aligned}
 $$
 :::
 
@@ -395,8 +399,55 @@ data.frame(k = k, p_k = p_k) |> ggplot(aes(k, p_k)) + geom_col()
 We use this to calculate, for example, that the chance of seeing 10 or more free throws in a row to start the game is `1 - geomcdf(10, .1)` = `r 1-pgeom(10,.1)`
 :::
 
+## Continuous random variables
 
-## Approximation to Binomial 
+:::{.callout-note icon=false}
+
+## Continuous random variables
+
+Some random variables are continuous. Height, weight, and temperature are examples.
+
+:::
+
+:::{.callout-note icon=false}
+
+## CDF
+
+A continuous random variable $X$ can take an infinity number of values $x$ so it does not make sense to write:
+
+$$ 
+\text{P}(X=x)
+$$
+
+Instead we define the cumulative distribution function as
+
+$$
+\text{F(a)} = \text{P}(X < a)
+$$
+
+:::
+
+
+
+We can then define the _probability density function_ $f(x)$ so that 
+
+$$
+F(a) = \int_{\infty}^a f(x)\,dx
+
+$$
+:::{.callout-important}
+We use continuous distribution to approximate discrete ones. We will use
+
+* normal distribution
+* t distribution
+* Chi-square distribution
+
+In the test you either use a function on the calculator or they provide a look up table for the cdf $F(a)$.
+
+:::
+
+
+## Approximation to Normal
 
 When the number of trials is large binomial is very well approximated by the normal distribution.
 

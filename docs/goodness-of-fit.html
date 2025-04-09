@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Rafael A. Irizarry">
-<meta name="dcterms.date" content="2025-04-09">
 
-<title>AP Stats Review</title>
+<title>6&nbsp; Goodness of fit – AP Stats Review</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./one-variable-data.html" rel="next">
+<link href="./slopes.html" rel="next">
+<link href="./means.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -70,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -82,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./goodness-of-fit.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Goodness of fit</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -112,7 +140,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
@@ -148,7 +176,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./goodness-of-fit.html" class="sidebar-item-text sidebar-link">
+  <a href="./goodness-of-fit.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Goodness of fit</span></span></a>
   </div>
 </li>
@@ -163,41 +191,22 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">AP Stats Review</h1>
-<p class="subtitle lead">DRAFT – Not Final</p>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Goodness of fit</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Rafael A. Irizarry </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">April 9, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -207,12 +216,214 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p>These are draft notes intended to support review for AP Statistics. They are a work in progress and may change frequently as material is added or revised. They have not been fully proofread and are provided <em>as is</em>, without any guarantees regarding completeness or accuracy.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example:
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Are all color Skittles equally likely?</p>
+<p>Here is the dat?</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Color</th>
+<th>Observed Count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Red</td>
+<td>20</td>
+</tr>
+<tr class="even">
+<td>Yellow</td>
+<td>25</td>
+</tr>
+<tr class="odd">
+<td>Green</td>
+<td>15</td>
+</tr>
+<tr class="even">
+<td>Purple</td>
+<td>18</td>
+</tr>
+<tr class="odd">
+<td>Orange</td>
+<td>22</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td><strong>100</strong></td>
+</tr>
+</tbody>
+</table>
+<p>We see more yellow and less green?</p>
+<p>Can this happen by chance?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Chi-square test
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This is a <strong>goodness of fit</strong> test.</p>
+<p>If we have <span class="math inline">\(k\)</span> categories each with <span class="math inline">\(p_i\)</span>, <span class="math inline">\(i=1,\dots,k\)</span> and observe <span class="math inline">\(N\)</span> outcomes, we expect to seen <span class="math inline">\(E_i = N p_i\)</span> of each.</p>
+<p>If we observe <span class="math inline">\(O_i\)</span> for categories <span class="math inline">\(i=1,\dots,k\)</span> then the distribution of</p>
+<p><span class="math display">\[
+\chi^2 = \sum_{i=1}^k \frac{(O_i - E_i)^2}{E_i}
+\]</span></p>
+<p>follows what is called a chi-square distribution with <span class="math inline">\(k-1\)</span> degrees of freedom.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example:
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Getting back to our example, if equally likely we have</p>
+<p><span class="math display">\[
+E_i = 100/5 \approx 20
+\]</span></p>
+<p>for all categories.</p>
+<p>We can compute the <span class="math inline">\(\chi^2\)</span> stat by</p>
+<p><span class="math display">\[
+\left((20 - 20)^2 + (25 - 20)^2 + (15 - 20)^2 + (18 - 20)^2 + (22 - 20)^2\right)/20 = 2.8
+\]</span></p>
+<p>We can look up this probability for a <span class="math inline">\(\chi^2\)</span> with 4 degrees of freedom and see that the p-value is 0.6.</p>
+<p>So can easilty see this by chance.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Is promotion status <strong>independent</strong> of gender, or is there evidence of <strong>gender bias</strong>?</p>
+<p>Observed Data:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Gender</th>
+<th>Promoted</th>
+<th>Not Promoted</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Men</td>
+<td>45</td>
+<td>55</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td>Women</td>
+<td>30</td>
+<td>70</td>
+<td>100</td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td><strong>75</strong></td>
+<td><strong>125</strong></td>
+<td><strong>200</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Calculate expected counts under the assumption of independence:</p>
+<p><span class="math display">\[
+E_{ij} = \frac{(\text{row total}) \times (\text{column total})}{\text{grand total}}
+\]</span></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 30%">
+<col style="width: 45%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Gender</th>
+<th>Promoted</th>
+<th>Not Promoted</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Men</td>
+<td><span class="math inline">\(\frac{100 \times 75}{200} = 37.5\)</span></td>
+<td><span class="math inline">\(\frac{100 \times 125}{200} = 62.5\)</span></td>
+</tr>
+<tr class="even">
+<td>Women</td>
+<td><span class="math inline">\(37.5\)</span></td>
+<td><span class="math inline">\(62.5\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Compute the chi-square test statistic:</p>
+<p><span class="math display">\[
+\chi^2 = \sum \frac{(O - E)^2}{E} = \frac{(45 - 37.5)^2}{37.5} + \frac{(55 - 62.5)^2}{62.5} + \frac{(30 - 37.5)^2}{37.5} + \frac{(70 - 62.5)^2}{62.5}
+\]</span></p>
+<p><span class="math display">\[
+= \frac{56.25}{37.5} + \frac{56.25}{62.5} + \frac{56.25}{37.5} + \frac{56.25}{62.5} = 1.5 + 0.9 + 1.5 + 0.9 = \mathbf{4.8}
+\]</span></p>
+<p>This has 1 degree of freedom.</p>
+<p>Use the chi-square cumulative distribution function:</p>
+<p><span class="math display">\[
+P(\chi^2 \geq 4.8) \approx 0.028
+\]</span></p>
+<p>Since the p-value is approximately 0.028, which is less than the typical significance level of 0.05, we <strong>reject <span class="math inline">\(H_0\)</span></strong>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the test there will be two types of problems related ti goodness of fit:</p>
+<ul>
+<li>Is the distribution of categorial data as expected (for example, Skittles)?
+<ul>
+<li>Several categories <span class="math inline">\(k\)</span></li>
+<li>probabilities of each category given</li>
+<li>degrees of freedom is <span class="math inline">\(k-1\)</span></li>
+</ul></li>
+<li>Are two variables independent (for example, gender bias)?
+<ul>
+<li>Two categories</li>
+<li>proportions calculated are from data.</li>
+<li>degrees of freedom is 1.</li>
+</ul></li>
+</ul>
+</div>
+</div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -637,10 +848,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./means.html" class="pagination-link" aria-label="Means">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Means</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./one-variable-data.html" class="pagination-link" aria-label="One varialbe data">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">One varialbe data</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./slopes.html" class="pagination-link" aria-label="Slopes">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Slopes</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

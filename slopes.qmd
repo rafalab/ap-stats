@@ -1,0 +1,169 @@
+# Slopes
+
+
+:::{.callout-tip icon=false}
+
+## Example is height hereditary?
+
+How well can we predict a child's height based on the parents' height?
+
+```{r, message=FALSE, warning=FALSE, cache = FALSE}
+library(tidyverse)
+library(HistData)
+
+set.seed(1983)
+galton_heights <- GaltonFamilies |>
+  filter(gender == "male") |>
+  group_by(family) |>
+  sample_n(1) |>
+  ungroup() |>
+  select(father, childHeight) |>
+  rename(son = childHeight)
+```
+
+We can summarize the data with the two averages and two standard deviations.
+However, this summary fails to describe an important characteristic of the data: the trend that the taller the father, the taller the son.
+
+```{r scatterplot, fig.height = 3, fig.width = 3, out.width="40%"}
+galton_heights |> ggplot(aes(father, son)) + 
+  geom_point(alpha = 0.5)
+```
+:::
+
+:::{.callout-note icon=false}
+
+## The correlation coefficient 
+
+The correlation coefficient is defined for a list of pairs $(x_1, y_1), \dots, (x_n,y_n)$ as the average of the product of the standardized values:
+
+$$
+\rho = \frac{1}{n} \sum_{i=1}^n \left( \frac{x_i-\mu_x}{\sigma_x} \right)\left( \frac{y_i-\mu_y}{\sigma_y} \right)
+$$ 
+
+with $\mu_x, \mu_y$ the averages of $x_1,\dots, x_n$ and $y_1, \dots, y_n$, respectively, and $\sigma_x, \sigma_y$ the standard deviations. 
+
+:::
+
+To understand why this equation does in fact summarize how two variables move together, consider the $i$-th entry of $x$ is $\left( \frac{x_i-\mu_x}{\sigma_x} \right)$ SDs away from the average. Similarly, the $y_i$ that is paired with $x_i$, is $\left( \frac{y_1-\mu_y}{\sigma_y} \right)$ SDs away from the average $y$. If $x$ and $y$ are unrelated, the product $\left( \frac{x_i-\mu_x}{\sigma_x} \right)\left( \frac{y_i-\mu_y}{\sigma_y} \right)$ will be positive ( $+ \times +$ and $- \times -$ ) as often as negative ($+ \times -$ and $- \times +$) and will average out to about 0. This correlation is the average and therefore unrelated variables will have 0 correlation. If instead the quantities vary together, then we are averaging mostly positive products ($+ \times +$ and $- \times -$) and we get a positive correlation. If they vary in opposite directions, we get a negative correlation.
+
+The correlation coefficient is always between -1 and 1. 
+
+
+To see what data looks like for different values of $\rho$, here are six examples of pairs with correlations ranging from -0.9 to 0.99:
+
+```{r what-correlation-looks-like, echo=FALSE}
+n <- 250
+cors <- c(-0.9,-0.5,0,0.5,0.9,0.99)
+sim_data <- lapply(cors,function(r) MASS::mvrnorm(n,c(0,0), matrix(c(1,r,r,1),2,2)))
+sim_data <- Reduce(rbind, sim_data)
+sim_data <- cbind( rep(cors, each = n), sim_data)
+colnames(sim_data) <- c("r","x","y")
+as.data.frame(sim_data) |> 
+  ggplot(aes(x,y)) + 
+  facet_wrap(~r) + 
+  geom_point(alpha = 0.5) +
+  geom_vline(xintercept = 0,lty = 2) + 
+  geom_hline(yintercept = 0,lty = 2) 
+```
+
+:::{.callout-note icon=false}
+
+## Sample correlation
+
+The $\rho$ defined above is for a population $(x_1,y_1), \dots, (x_n, y_n)$
+
+If we have a sample $(X_1,Y_1), \dots, (x_N, y_N)$we can estimate with the sample correlation:
+
+$$
+r = \frac{1}{N-1}\sum_{i=1}^{N}\left(\frac{X-\bar{X}}{s_X}\right)\left(\frac{Y-\bar{Y}}{s_Y}\right)
+$$
+
+:::
+
+:::{.callout-important}
+$r$ is a random variable!
+:::
+
+## Correlation is not always a useful summary 
+
+Correlation is not always a good summary of the relationship between two variables. The following four artificial datasets, referred to as Anscombe's quartet, famously illustrate this point. All these pairs have a correlation of 0.82:
+
+```{r ascombe-quartet, echo=FALSE}
+anscombe |> mutate(row = seq_len(n())) |>
+  gather(name, value, -row) |> 
+  separate(name, c("axis", "group"), sep=1) |>
+  spread(axis, value) |> select(-row) |>
+  ggplot(aes(x,y)) +
+  facet_wrap(~group)  +
+  geom_smooth(formula = "y ~ x", method="lm", fill=NA, fullrange=TRUE) + 
+  geom_point()
+#+  geom_point(bg="orange", color="red", cex=3, pch=21)
+```
+
+
+:::{.callout-note icon=false}
+
+## The regression line
+
+If we are predicting a random variable $Y$ knowing the value of another $X=x$ using a regression line, then we predict that for every standard deviation, $\sigma_X$, that $x$ increases above the average $\mu_X$, our prediction $\hat{Y}$ increase $\rho$ standard deviations $\sigma_Y$ above the average $\mu_Y$ with $\rho$ the correlation between $X$ and $Y$. The formula for the regression is therefore:
+
+$$ 
+\left( \frac{\hat{Y}-\mu_Y}{\sigma_Y} \right) = \rho \left( \frac{x-\mu_X}{\sigma_X} \right)
+$$
+
+We can rewrite it like this:
+
+$$ 
+\hat{Y} = \mu_Y + \rho \frac{\sigma_Y}{\sigma_X}(x-\mu_X)
+$$
+
+* The $\rho \frac{\sigma_Y}{\sigma_X}$ of the regression line is proportional to $r$.
+* You can think of $\frac{\sigma_Y}{\sigma_X}$ as needed for unit conversion.
+:::
+
+
+
+
+If there is perfect correlation, the regression line predicts an increase that is the same number of SDs. If there is 0 correlation, then we don't use $x$ at all for the prediction and simply predict the average $\mu_Y$. For values between 0 and 1, the prediction is somewhere in between. If the correlation is negative, we predict a reduction instead of an increase.
+
+Note that if the correlation is positive and lower than 1, our prediction is closer, in standard units, to the average height than the value used to predict, $x$, is to the average of the $x$s. This is why we call it *regression*: the son regresses to the average height. In fact, the title of Galton's paper was: *Regression toward mediocrity in hereditary stature*. To add regression lines to plots, we will need the above formula in the form:
+
+$$
+\hat{Y} = b + mx \mbox{ with slope } m = \rho \frac{\sigma_y}{\sigma_x} \mbox{ and intercept } b=\mu_y - m \mu_x
+$$
+
+:::{.callout-note icon=false}
+
+## Estimating the regression line
+
+The equation above is theoretical. The estimate using the data is
+
+$$ 
+\hat{Y} = \bar{Y} + r\frac{s_Y}{s_X}(x-\bar{X})
+$$
+:::
+
+
+Here we add the regression line to the original data:
+
+```{r regression-line, fig.height = 3, fig.width = 3, out.width="40%"}
+mu_x <- mean(galton_heights$father)
+mu_y <- mean(galton_heights$son)
+s_x <- sd(galton_heights$father)
+s_y <- sd(galton_heights$son)
+r <- cor(galton_heights$father, galton_heights$son)
+
+galton_heights |> 
+  ggplot(aes(father, son)) + 
+  geom_point(alpha = 0.5) +
+  geom_abline(slope = r * s_y/s_x, intercept = mu_y - r * s_y/s_x * mu_x) 
+```
+
+The regression formula implies that if we first standardize the variables, that is subtract the average and divide by the standard deviation, then the regression line has intercept 0 and slope equal to the correlation $\rho$. You can make same plot, but using standard units like this:
+
+```{r regression-line-standard-units, fig.height = 3, fig.width = 3, out.width="40%", eval=FALSE}
+galton_heights |> 
+  ggplot(aes(scale(father), scale(son))) + 
+  geom_point(alpha = 0.5) +
+  geom_abline(intercept = 0, slope = r) 
+```

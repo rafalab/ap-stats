@@ -1,0 +1,135 @@
+# Goodness of fit
+
+:::{.callout-tip icon=false}
+
+### Example:  
+
+Are all color Skittles equally likely?
+
+Here is the dat?
+
+| Color   | Observed Count |
+|---------|----------------|
+| Red     | 20             |
+| Yellow  | 25             |
+| Green   | 15             |
+| Purple  | 18             |
+| Orange  | 22             |
+| **Total** | **100**      |
+
+We see more yellow and less green? 
+
+Can this happen by chance?
+
+:::
+
+
+:::{.callout-note icon=false}
+
+## Chi-square test
+
+This is a **goodness of fit** test.
+
+If we have $k$ categories each with $p_i$, $i=1,\dots,k$ and observe $N$ outcomes, we expect to seen $E_i = N p_i$ of each.
+
+If we observe $O_i$ for categories $i=1,\dots,k$ then the distribution of
+
+$$
+\chi^2 = \sum_{i=1}^k \frac{(O_i - E_i)^2}{E_i}
+$$
+
+follows what is called a chi-square distribution with $k-1$ degrees of freedom.
+
+:::
+
+:::{.callout-note icon=false}
+
+### Example:  
+
+Getting back to our example, if equally likely we have
+
+$$
+E_i = 100/5 \approx 20
+$$
+
+for all categories.
+
+We can compute the $\chi^2$ stat by
+
+$$
+\left((20 - 20)^2 + (25 - 20)^2 + (15 - 20)^2 + (18 - 20)^2 + (22 - 20)^2\right)/20 = 2.8
+$$
+
+We can look up this probability for a $\chi^2$ with 4 degrees of freedom and see that the p-value is 0.6. 
+
+So can easilty see this by chance.
+
+:::
+
+
+:::{.callout-tip icon=false}
+
+## Example
+
+
+Is promotion status **independent** of gender, or is there evidence of **gender bias**?
+
+Observed Data:
+
+| Gender | Promoted | Not Promoted | Total |
+|--------|----------|--------------|-------|
+| Men    | 45       | 55           | 100   |
+| Women  | 30       | 70           | 100   |
+| **Total** | **75**   | **125**         | **200**   |
+
+Calculate expected counts under the assumption of independence:
+
+$$
+E_{ij} = \frac{(\text{row total}) \times (\text{column total})}{\text{grand total}}
+$$
+
+| Gender | Promoted | Not Promoted |
+|--------|----------|---------------|
+| Men    | $\frac{100 \times 75}{200} = 37.5$ | $\frac{100 \times 125}{200} = 62.5$ |
+| Women  | $37.5$     | $62.5$          |
+
+
+Compute the chi-square test statistic:
+
+$$
+\chi^2 = \sum \frac{(O - E)^2}{E} = \frac{(45 - 37.5)^2}{37.5} + \frac{(55 - 62.5)^2}{62.5} + \frac{(30 - 37.5)^2}{37.5} + \frac{(70 - 62.5)^2}{62.5}
+$$
+
+$$
+= \frac{56.25}{37.5} + \frac{56.25}{62.5} + \frac{56.25}{37.5} + \frac{56.25}{62.5} = 1.5 + 0.9 + 1.5 + 0.9 = \mathbf{4.8}
+$$
+
+
+This has 1 degree of freedom.
+
+Use the chi-square cumulative distribution function:
+
+$$
+P(\chi^2 \geq 4.8) \approx 0.028
+$$
+
+
+Since the p-value is approximately 0.028, which is less than the typical significance level of 0.05, we **reject $H_0$**.
+:::
+
+
+:::{.callout-important}
+In the test there will be two types of problems related ti goodness of fit:
+
+* Is the distribution of categorial data as expected (for example, Skittles)?
+  * Several categories $k$
+  * probabilities of each category given
+  * degrees of freedom is $k-1$
+  
+* Are two variables independent (for example, gender bias)?
+  * Two categories
+  * proportions calculated are from data.
+  * degrees of freedom is 1.
+
+:::
+
