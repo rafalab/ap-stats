@@ -1,9 +1,11 @@
 # Slopes
 
+## Motivation to help understand
 
-:::{.callout-tip icon=false}
+This section gives some background and motivation to understand the material you 
+are tested on. You can skip to the next section if you just want to see notes on the materials on the test.
 
-## Example is height hereditary?
+### Example is height hereditary?
 
 How well can we predict a child's height based on the parents' height?
 
@@ -28,11 +30,8 @@ However, this summary fails to describe an important characteristic of the data:
 galton_heights |> ggplot(aes(father, son)) + 
   geom_point(alpha = 0.5)
 ```
-:::
 
-:::{.callout-note icon=false}
-
-## The correlation coefficient 
+### The population correlation coefficient 
 
 The correlation coefficient is defined for a list of pairs $(x_1, y_1), \dots, (x_n,y_n)$ as the average of the product of the standardized values:
 
@@ -42,7 +41,6 @@ $$
 
 with $\mu_x, \mu_y$ the averages of $x_1,\dots, x_n$ and $y_1, \dots, y_n$, respectively, and $\sigma_x, \sigma_y$ the standard deviations. 
 
-:::
 
 To understand why this equation does in fact summarize how two variables move together, consider the $i$-th entry of $x$ is $\left( \frac{x_i-\mu_x}{\sigma_x} \right)$ SDs away from the average. Similarly, the $y_i$ that is paired with $x_i$, is $\left( \frac{y_1-\mu_y}{\sigma_y} \right)$ SDs away from the average $y$. If $x$ and $y$ are unrelated, the product $\left( \frac{x_i-\mu_x}{\sigma_x} \right)\left( \frac{y_i-\mu_y}{\sigma_y} \right)$ will be positive ( $+ \times +$ and $- \times -$ ) as often as negative ($+ \times -$ and $- \times +$) and will average out to about 0. This correlation is the average and therefore unrelated variables will have 0 correlation. If instead the quantities vary together, then we are averaging mostly positive products ($+ \times +$ and $- \times -$) and we get a positive correlation. If they vary in opposite directions, we get a negative correlation.
 
@@ -66,25 +64,22 @@ as.data.frame(sim_data) |>
   geom_hline(yintercept = 0,lty = 2) 
 ```
 
-:::{.callout-note icon=false}
-
-## Sample correlation
+### Sample correlation coefficient
 
 The $\rho$ defined above is for a population $(x_1,y_1), \dots, (x_n, y_n)$
 
-If we have a sample $(X_1,Y_1), \dots, (x_N, y_N)$we can estimate with the sample correlation:
+If we have a sample $(X_1,Y_1), \dots, (X_N, Y_N)$we can estimate with the sample correlation:
 
 $$
 r = \frac{1}{N-1}\sum_{i=1}^{N}\left(\frac{X-\bar{X}}{s_X}\right)\left(\frac{Y-\bar{Y}}{s_Y}\right)
 $$
 
-:::
 
 :::{.callout-important}
 $r$ is a random variable!
 :::
 
-## Correlation is not always a useful summary 
+### Correlation is not always a useful summary 
 
 Correlation is not always a good summary of the relationship between two variables. The following four artificial datasets, referred to as Anscombe's quartet, famously illustrate this point. All these pairs have a correlation of 0.82:
 
@@ -101,9 +96,7 @@ anscombe |> mutate(row = seq_len(n())) |>
 ```
 
 
-:::{.callout-note icon=false}
-
-## The regression line
+### The regression line
 
 If we are predicting a random variable $Y$ knowing the value of another $X=x$ using a regression line, then we predict that for every standard deviation, $\sigma_X$, that $x$ increases above the average $\mu_X$, our prediction $\hat{Y}$ increase $\rho$ standard deviations $\sigma_Y$ above the average $\mu_Y$ with $\rho$ the correlation between $X$ and $Y$. The formula for the regression is therefore:
 
@@ -119,34 +112,123 @@ $$
 
 * The $\rho \frac{\sigma_Y}{\sigma_X}$ of the regression line is proportional to $r$.
 * You can think of $\frac{\sigma_Y}{\sigma_X}$ as needed for unit conversion.
+
+**Interpretation**:
+If there is perfect correlation, the regression line predicts an increase that is the same number of SDs. If there is 0 correlation, then we don't use $x$ at all for the prediction and simply predict the average $\mu_Y$. For values between 0 and 1, the prediction is somewhere in between. If the correlation is negative, we predict a reduction instead of an increase.
+
+:::{.callout-note}
+Note that if the correlation is positive and lower than 1, our prediction is closer, in standard units, to the average height than the value used to predict, $x$, is to the average of the $x$s. This is why we call it *regression*: the son regresses to the average height. In fact, the title of Galton's paper was: *Regression toward mediocrity in hereditary stature*. 
 :::
 
 
+### Linear model represention
 
 
-If there is perfect correlation, the regression line predicts an increase that is the same number of SDs. If there is 0 correlation, then we don't use $x$ at all for the prediction and simply predict the average $\mu_Y$. For values between 0 and 1, the prediction is somewhere in between. If the correlation is negative, we predict a reduction instead of an increase.
+Note you can write the equations above in the form lines are usually written: $y = a + bx$
 
-Note that if the correlation is positive and lower than 1, our prediction is closer, in standard units, to the average height than the value used to predict, $x$, is to the average of the $x$s. This is why we call it *regression*: the son regresses to the average height. In fact, the title of Galton's paper was: *Regression toward mediocrity in hereditary stature*. To add regression lines to plots, we will need the above formula in the form:
+In the case of the regression line $Y$ is random, not exactly a line so we can write the relationship like this
 
 $$
-\hat{Y} = b + mx \mbox{ with slope } m = \rho \frac{\sigma_y}{\sigma_x} \mbox{ and intercept } b=\mu_y - m \mu_x
+Y = a + bx + \varepsilon
 $$
+
+Here $a+bx$ is the regression line and $\varepsilon$ are the _errors_ representing the distance between observed points and the line.
+
+Note that using the equations above we can write 
+
+$$
+b = \rho\frac{\sigma_y}{\sigma_x}
+$$
+
+which as the correlation after unit conversion.
+
+## Notes for the exam
+
 
 :::{.callout-note icon=false}
 
-## Estimating the regression line
+## The regression line
 
-The equation above is theoretical. The estimate using the data is
+In the AP test they write the regression line like this:
 
-$$ 
-\hat{Y} = \bar{Y} + r\frac{s_Y}{s_X}(x-\bar{X})
 $$
+\hat{y} = a + bx
+$$
+The little hat means on top of $y$ signifies that it's a prediction. 
+
+The prediction $\hat{y}$ is on a line, but the observed $y$ is not.
+
+The slope $b$ is what we care about because it summarizes the association between $y$ and $x$.
 :::
 
 
+:::{.callout-note icon=false}
+
+## The slope is a random
+
+Because we estimate $b$ from data, it is a random variable with a mean $\mu_b$ and standard error $\sigma_b$.
+
+The standard error can be computed to be (we don't explain why)
+
+$$
+\sigma_b = \frac{\sigma}{\sigma_x\sqrt{n-1}}
+$$
+We estimate this with the sample standard deviations
+
+$$
+s_b = \frac{s}{s_x\sqrt{n-1}}
+$$
+
+Here $s$ is the standard deviation of the residuals $y - \hat{y}$.
+:::
+
+:::{.callout-important}
+In the exam you don't need to compute $s_b$. It is given to you as computer output. 
+
+Looks something like this:
+
+```
+Predictor    Coef       SE Coef   T       P  
+Constant     40.93831   4.40460   9.294   < 2e-16 
+son          0.40713    0.06363   6.398   1.36e-09 
+
+s = 2.301 R-sq (adj) = 18.33%
+```
+* $b$ is calculated for you, it's the `Coef` for `son`.
+
+* $s_b$ is calculated as well, it's the `SE Coef` for son.
+
+* `T` is simply $b/s_b$
+
+* `P` is the p-value for the null the slope being 0.
+
+:::
+
+:::{.callout-note icon=false}
+
+## Confidence intervals and p-values
+
+If you think of $b$ as a random variable, you can apply what you have learned before
+to construct confidence intervals and p-values.
+
+This is because, if the data is normally distributed, $b/s_b$ follows a t-distribution with $n-2$ degrees of freedom with $n$ the number of observations.
+
+You can use this to compute p-values for the null that there is no relationship.
+
+You calculate
+
+$$
+\text{P}(|b/s_b| > \text{observed value})
+$$
+:::
+
+:::{.callout-note icon=false}
+
+### Example: heights
+
 Here we add the regression line to the original data:
 
-```{r regression-line, fig.height = 3, fig.width = 3, out.width="40%"}
+```{r regression-line, fig.height = 3, fig.width = 3, out.width="40%", echo=FALSE}
 mu_x <- mean(galton_heights$father)
 mu_y <- mean(galton_heights$son)
 s_x <- sd(galton_heights$father)
@@ -158,12 +240,18 @@ galton_heights |>
   geom_point(alpha = 0.5) +
   geom_abline(slope = r * s_y/s_x, intercept = mu_y - r * s_y/s_x * mu_x) 
 ```
+:::
 
-The regression formula implies that if we first standardize the variables, that is subtract the average and divide by the standard deviation, then the regression line has intercept 0 and slope equal to the correlation $\rho$. You can make same plot, but using standard units like this:
 
-```{r regression-line-standard-units, fig.height = 3, fig.width = 3, out.width="40%", eval=FALSE}
+:::{.callout-note}
+The regression formula implies that if we first standardize the variables, that is subtract the average and divide by the standard deviation, then the regression line has intercept 0 and slope equal to the correlation $\rho$. 
+
+You can make same plot, but using standard units like this:
+
+```{r regression-line-standard-units, fig.height = 3, fig.width = 3, out.width="40%", echo=FALSE}
 galton_heights |> 
   ggplot(aes(scale(father), scale(son))) + 
   geom_point(alpha = 0.5) +
   geom_abline(intercept = 0, slope = r) 
 ```
+:::

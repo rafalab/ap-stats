@@ -195,7 +195,16 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#correlation-is-not-always-a-useful-summary" id="toc-correlation-is-not-always-a-useful-summary" class="nav-link active" data-scroll-target="#correlation-is-not-always-a-useful-summary"><span class="header-section-number">7.1</span> Correlation is not always a useful summary</a></li>
+  <li><a href="#motivation-to-help-understand" id="toc-motivation-to-help-understand" class="nav-link active" data-scroll-target="#motivation-to-help-understand"><span class="header-section-number">7.1</span> Motivation to help understand</a>
+  <ul class="collapse">
+  <li><a href="#example-is-height-hereditary" id="toc-example-is-height-hereditary" class="nav-link" data-scroll-target="#example-is-height-hereditary"><span class="header-section-number">7.1.1</span> Example is height hereditary?</a></li>
+  <li><a href="#the-population-correlation-coefficient" id="toc-the-population-correlation-coefficient" class="nav-link" data-scroll-target="#the-population-correlation-coefficient"><span class="header-section-number">7.1.2</span> The population correlation coefficient</a></li>
+  <li><a href="#sample-correlation-coefficient" id="toc-sample-correlation-coefficient" class="nav-link" data-scroll-target="#sample-correlation-coefficient"><span class="header-section-number">7.1.3</span> Sample correlation coefficient</a></li>
+  <li><a href="#correlation-is-not-always-a-useful-summary" id="toc-correlation-is-not-always-a-useful-summary" class="nav-link" data-scroll-target="#correlation-is-not-always-a-useful-summary"><span class="header-section-number">7.1.4</span> Correlation is not always a useful summary</a></li>
+  <li><a href="#the-regression-line" id="toc-the-regression-line" class="nav-link" data-scroll-target="#the-regression-line"><span class="header-section-number">7.1.5</span> The regression line</a></li>
+  <li><a href="#linear-model-represention" id="toc-linear-model-represention" class="nav-link" data-scroll-target="#linear-model-represention"><span class="header-section-number">7.1.6</span> Linear model represention</a></li>
+  </ul></li>
+  <li><a href="#notes-for-the-exam" id="toc-notes-for-the-exam" class="nav-link" data-scroll-target="#notes-for-the-exam"><span class="header-section-number">7.2</span> Notes for the exam</a></li>
   </ul>
 </nav>
     </div>
@@ -221,16 +230,11 @@ window.Quarto = {
 </header>
 
 
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Example is height hereditary?
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<section id="motivation-to-help-understand" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="motivation-to-help-understand"><span class="header-section-number">7.1</span> Motivation to help understand</h2>
+<p>This section gives some background and motivation to understand the material you are tested on. You can skip to the next section if you just want to see notes on the materials on the test.</p>
+<section id="example-is-height-hereditary" class="level3" data-number="7.1.1">
+<h3 data-number="7.1.1" class="anchored" data-anchor-id="example-is-height-hereditary"><span class="header-section-number">7.1.1</span> Example is height hereditary?</h3>
 <p>How well can we predict a child’s height based on the parents’ height?</p>
 <p>We can summarize the data with the two averages and two standard deviations. However, this summary fails to describe an important characteristic of the data: the trend that the taller the father, the taller the son.</p>
 <div class="cell">
@@ -242,25 +246,14 @@ Example is height hereditary?
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-The correlation coefficient
-</div>
-</div>
-<div class="callout-body-container callout-body">
+</section>
+<section id="the-population-correlation-coefficient" class="level3" data-number="7.1.2">
+<h3 data-number="7.1.2" class="anchored" data-anchor-id="the-population-correlation-coefficient"><span class="header-section-number">7.1.2</span> The population correlation coefficient</h3>
 <p>The correlation coefficient is defined for a list of pairs <span class="math inline">\((x_1, y_1), \dots, (x_n,y_n)\)</span> as the average of the product of the standardized values:</p>
 <p><span class="math display">\[
 \rho = \frac{1}{n} \sum_{i=1}^n \left( \frac{x_i-\mu_x}{\sigma_x} \right)\left( \frac{y_i-\mu_y}{\sigma_y} \right)
 \]</span></p>
 <p>with <span class="math inline">\(\mu_x, \mu_y\)</span> the averages of <span class="math inline">\(x_1,\dots, x_n\)</span> and <span class="math inline">\(y_1, \dots, y_n\)</span>, respectively, and <span class="math inline">\(\sigma_x, \sigma_y\)</span> the standard deviations.</p>
-</div>
-</div>
 <p>To understand why this equation does in fact summarize how two variables move together, consider the <span class="math inline">\(i\)</span>-th entry of <span class="math inline">\(x\)</span> is <span class="math inline">\(\left( \frac{x_i-\mu_x}{\sigma_x} \right)\)</span> SDs away from the average. Similarly, the <span class="math inline">\(y_i\)</span> that is paired with <span class="math inline">\(x_i\)</span>, is <span class="math inline">\(\left( \frac{y_1-\mu_y}{\sigma_y} \right)\)</span> SDs away from the average <span class="math inline">\(y\)</span>. If <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are unrelated, the product <span class="math inline">\(\left( \frac{x_i-\mu_x}{\sigma_x} \right)\left( \frac{y_i-\mu_y}{\sigma_y} \right)\)</span> will be positive ( <span class="math inline">\(+ \times +\)</span> and <span class="math inline">\(- \times -\)</span> ) as often as negative (<span class="math inline">\(+ \times -\)</span> and <span class="math inline">\(- \times +\)</span>) and will average out to about 0. This correlation is the average and therefore unrelated variables will have 0 correlation. If instead the quantities vary together, then we are averaging mostly positive products (<span class="math inline">\(+ \times +\)</span> and <span class="math inline">\(- \times -\)</span>) and we get a positive correlation. If they vary in opposite directions, we get a negative correlation.</p>
 <p>The correlation coefficient is always between -1 and 1.</p>
 <p>To see what data looks like for different values of <span class="math inline">\(\rho\)</span>, here are six examples of pairs with correlations ranging from -0.9 to 0.99:</p>
@@ -273,23 +266,14 @@ The correlation coefficient
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Sample correlation
-</div>
-</div>
-<div class="callout-body-container callout-body">
+</section>
+<section id="sample-correlation-coefficient" class="level3" data-number="7.1.3">
+<h3 data-number="7.1.3" class="anchored" data-anchor-id="sample-correlation-coefficient"><span class="header-section-number">7.1.3</span> Sample correlation coefficient</h3>
 <p>The <span class="math inline">\(\rho\)</span> defined above is for a population <span class="math inline">\((x_1,y_1), \dots, (x_n, y_n)\)</span></p>
-<p>If we have a sample <span class="math inline">\((X_1,Y_1), \dots, (x_N, y_N)\)</span>we can estimate with the sample correlation:</p>
+<p>If we have a sample <span class="math inline">\((X_1,Y_1), \dots, (X_N, Y_N)\)</span>we can estimate with the sample correlation:</p>
 <p><span class="math display">\[
 r = \frac{1}{N-1}\sum_{i=1}^{N}\left(\frac{X-\bar{X}}{s_X}\right)\left(\frac{Y-\bar{Y}}{s_Y}\right)
 \]</span></p>
-</div>
-</div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -303,8 +287,9 @@ Important
 <p><span class="math inline">\(r\)</span> is a random variable!</p>
 </div>
 </div>
-<section id="correlation-is-not-always-a-useful-summary" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="correlation-is-not-always-a-useful-summary"><span class="header-section-number">7.1</span> Correlation is not always a useful summary</h2>
+</section>
+<section id="correlation-is-not-always-a-useful-summary" class="level3" data-number="7.1.4">
+<h3 data-number="7.1.4" class="anchored" data-anchor-id="correlation-is-not-always-a-useful-summary"><span class="header-section-number">7.1.4</span> Correlation is not always a useful summary</h3>
 <p>Correlation is not always a good summary of the relationship between two variables. The following four artificial datasets, referred to as Anscombe’s quartet, famously illustrate this point. All these pairs have a correlation of 0.82:</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -315,16 +300,9 @@ Important
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-The regression line
-</div>
-</div>
-<div class="callout-body-container callout-body">
+</section>
+<section id="the-regression-line" class="level3" data-number="7.1.5">
+<h3 data-number="7.1.5" class="anchored" data-anchor-id="the-regression-line"><span class="header-section-number">7.1.5</span> The regression line</h3>
 <p>If we are predicting a random variable <span class="math inline">\(Y\)</span> knowing the value of another <span class="math inline">\(X=x\)</span> using a regression line, then we predict that for every standard deviation, <span class="math inline">\(\sigma_X\)</span>, that <span class="math inline">\(x\)</span> increases above the average <span class="math inline">\(\mu_X\)</span>, our prediction <span class="math inline">\(\hat{Y}\)</span> increase <span class="math inline">\(\rho\)</span> standard deviations <span class="math inline">\(\sigma_Y\)</span> above the average <span class="math inline">\(\mu_Y\)</span> with <span class="math inline">\(\rho\)</span> the correlation between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. The formula for the regression is therefore:</p>
 <p><span class="math display">\[
 \left( \frac{\hat{Y}-\mu_Y}{\sigma_Y} \right) = \rho \left( \frac{x-\mu_X}{\sigma_X} \right)
@@ -337,29 +315,131 @@ The regression line
 <li>The <span class="math inline">\(\rho \frac{\sigma_Y}{\sigma_X}\)</span> of the regression line is proportional to <span class="math inline">\(r\)</span>.</li>
 <li>You can think of <span class="math inline">\(\frac{\sigma_Y}{\sigma_X}\)</span> as needed for unit conversion.</li>
 </ul>
+<p><strong>Interpretation</strong>: If there is perfect correlation, the regression line predicts an increase that is the same number of SDs. If there is 0 correlation, then we don’t use <span class="math inline">\(x\)</span> at all for the prediction and simply predict the average <span class="math inline">\(\mu_Y\)</span>. For values between 0 and 1, the prediction is somewhere in between. If the correlation is negative, we predict a reduction instead of an increase.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
 </div>
 </div>
-<p>If there is perfect correlation, the regression line predicts an increase that is the same number of SDs. If there is 0 correlation, then we don’t use <span class="math inline">\(x\)</span> at all for the prediction and simply predict the average <span class="math inline">\(\mu_Y\)</span>. For values between 0 and 1, the prediction is somewhere in between. If the correlation is negative, we predict a reduction instead of an increase.</p>
-<p>Note that if the correlation is positive and lower than 1, our prediction is closer, in standard units, to the average height than the value used to predict, <span class="math inline">\(x\)</span>, is to the average of the <span class="math inline">\(x\)</span>s. This is why we call it <em>regression</em>: the son regresses to the average height. In fact, the title of Galton’s paper was: <em>Regression toward mediocrity in hereditary stature</em>. To add regression lines to plots, we will need the above formula in the form:</p>
+<div class="callout-body-container callout-body">
+<p>Note that if the correlation is positive and lower than 1, our prediction is closer, in standard units, to the average height than the value used to predict, <span class="math inline">\(x\)</span>, is to the average of the <span class="math inline">\(x\)</span>s. This is why we call it <em>regression</em>: the son regresses to the average height. In fact, the title of Galton’s paper was: <em>Regression toward mediocrity in hereditary stature</em>.</p>
+</div>
+</div>
+</section>
+<section id="linear-model-represention" class="level3" data-number="7.1.6">
+<h3 data-number="7.1.6" class="anchored" data-anchor-id="linear-model-represention"><span class="header-section-number">7.1.6</span> Linear model represention</h3>
+<p>Note you can write the equations above in the form lines are usually written: <span class="math inline">\(y = a + bx\)</span></p>
+<p>In the case of the regression line <span class="math inline">\(Y\)</span> is random, not exactly a line so we can write the relationship like this</p>
 <p><span class="math display">\[
-\hat{Y} = b + mx \mbox{ with slope } m = \rho \frac{\sigma_y}{\sigma_x} \mbox{ and intercept } b=\mu_y - m \mu_x
+Y = a + bx + \varepsilon
 \]</span></p>
+<p>Here <span class="math inline">\(a+bx\)</span> is the regression line and <span class="math inline">\(\varepsilon\)</span> are the <em>errors</em> representing the distance between observed points and the line.</p>
+<p>Note that using the equations above we can write</p>
+<p><span class="math display">\[
+b = \rho\frac{\sigma_y}{\sigma_x}
+\]</span></p>
+<p>which as the correlation after unit conversion.</p>
+</section>
+</section>
+<section id="notes-for-the-exam" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="notes-for-the-exam"><span class="header-section-number">7.2</span> Notes for the exam</h2>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Estimating the regression line
+The regression line
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The equation above is theoretical. The estimate using the data is</p>
+<p>In the AP test they write the regression line like this:</p>
 <p><span class="math display">\[
-\hat{Y} = \bar{Y} + r\frac{s_Y}{s_X}(x-\bar{X})
+\hat{y} = a + bx
+\]</span> The little hat means on top of <span class="math inline">\(y\)</span> signifies that it’s a prediction.</p>
+<p>The prediction <span class="math inline">\(\hat{y}\)</span> is on a line, but the observed <span class="math inline">\(y\)</span> is not.</p>
+<p>The slope <span class="math inline">\(b\)</span> is what we care about because it summarizes the association between <span class="math inline">\(y\)</span> and <span class="math inline">\(x\)</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The slope is a random
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Because we estimate <span class="math inline">\(b\)</span> from data, it is a random variable with a mean <span class="math inline">\(\mu_b\)</span> and standard error <span class="math inline">\(\sigma_b\)</span>.</p>
+<p>The standard error can be computed to be (we don’t explain why)</p>
+<p><span class="math display">\[
+\sigma_b = \frac{\sigma}{\sigma_x\sqrt{n-1}}
+\]</span> We estimate this with the sample standard deviations</p>
+<p><span class="math display">\[
+s_b = \frac{s}{s_x\sqrt{n-1}}
+\]</span></p>
+<p>Here <span class="math inline">\(s\)</span> is the standard deviation of the residuals <span class="math inline">\(y - \hat{y}\)</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the exam you don’t need to compute <span class="math inline">\(s_b\)</span>. It is given to you as computer output.</p>
+<p>Looks something like this:</p>
+<pre><code>Predictor    Coef       SE Coef   T       P  
+Constant     40.93831   4.40460   9.294   &lt; 2e-16 
+son          0.40713    0.06363   6.398   1.36e-09 
+
+s = 2.301 R-sq (adj) = 18.33%</code></pre>
+<ul>
+<li><p><span class="math inline">\(b\)</span> is calculated for you, it’s the <code>Coef</code> for <code>son</code>.</p></li>
+<li><p><span class="math inline">\(s_b\)</span> is calculated as well, it’s the <code>SE Coef</code> for son.</p></li>
+<li><p><code>T</code> is simply <span class="math inline">\(b/s_b\)</span></p></li>
+<li><p><code>P</code> is the p-value for the null the slope being 0.</p></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Confidence intervals and p-values
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you think of <span class="math inline">\(b\)</span> as a random variable, you can apply what you have learned before to construct confidence intervals and p-values.</p>
+<p>This is because, if the data is normally distributed, <span class="math inline">\(b/s_b\)</span> follows a t-distribution with <span class="math inline">\(n-2\)</span> degrees of freedom with <span class="math inline">\(n\)</span> the number of observations.</p>
+<p>You can use this to compute p-values for the null that there is no relationship.</p>
+<p>You calculate</p>
+<p><span class="math display">\[
+\text{P}(|b/s_b| &gt; \text{observed value})
 \]</span></p>
 </div>
 </div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example: heights
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Here we add the regression line to the original data:</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -370,7 +450,31 @@ Estimating the regression line
 </div>
 </div>
 </div>
-<p>The regression formula implies that if we first standardize the variables, that is subtract the average and divide by the standard deviation, then the regression line has intercept 0 and slope equal to the correlation <span class="math inline">\(\rho\)</span>. You can make same plot, but using standard units like this:</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The regression formula implies that if we first standardize the variables, that is subtract the average and divide by the standard deviation, then the regression line has intercept 0 and slope equal to the correlation <span class="math inline">\(\rho\)</span>.</p>
+<p>You can make same plot, but using standard units like this:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="slopes_files/figure-html/regression-line-standard-units-1.png" class="img-fluid figure-img" style="width:40.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
 </section>
