@@ -131,7 +131,7 @@ $$
 
 We use $\sigma_{*}$ just like $\mu_{*}$
 
-You can think of this as the typical distance you see $X$ from the mean $\mu_X$. For the heads or tails this is 1/2 since both 0 and 1 are1/2 from the mean 1/2.
+You can think of this as the typical distance you see $X$ from the mean $\mu_X$. For the heads or tails this is 1/2 since both 0 and 1 are 1/2 from the mean 1/2.
 
 :::{.callout-note}
 We sometimes say _the standard error of $X$_ to mean _the standard deviation of the distribution of a random variable $X$_.

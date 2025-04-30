@@ -1,5 +1,144 @@
 # Introduction
 
-This is an AP review.
+Main notation, definitions, and properties to remember.
+
+## Population parameters
+
+:::{.callout-note icon=false}
+
+## For problems about proportions
+
+$p$ is the population proportion of 1s, $1-p$ is the proportion of 0s.
+
+$\sqrt{p(1-p)}$ is the standard deviation of a population with a proprotion $p$ of 1s.
+
+:::
 
 
+:::{.callout-note icon=false}
+
+## For problems about continous variables
+
+$\mu$ is the population average.
+
+$\sigma$ is the population standard deviation
+
+:::
+
+:::{.callout-note icon=false}
+
+## For categorical variables
+
+$p_1$, $p_2$, \dots, $p_k$ are the proportion of categories $1,2,\dots,k$ respectively.
+
+:::
+
+
+
+
+## Random variables
+
+All random variables $X$ have a distribution.
+
+* $\mu_X$ is the mean of this distribution
+
+* $\sigma_X$ is the standard deviation of this distribution
+
+* $\mu_{X+Y} = \mu_{X}+\mu{Y}$
+
+* $\sigma_{X+Y} = \sqrt{\sigma_{X}^2+\sigma_{Y}^2}$ **IF $X$ and $Y$ are independent**.
+
+## Sample estimates
+
+:::{.callout-note icon=false}
+
+## For problems about proportions
+
+* $\hat{p}$ is the sample population
+
+* $\hat{p}$ estimates $p$
+
+* $N$ is the sample size
+
+* $\mu_{\hat{p}} = p$
+
+* $\sigma_{\hat{p}} = \sqrt{\frac{p(1-p)}{N}}$
+
+* If $N\geq30$
+
+$$\frac{\hat{p}-p}{\sqrt{\frac{\hat{p}(1-\hat{p}}{N}}}$$
+follows standard normal distribution
+
+:::
+
+
+:::{.callout-note icon=false}
+
+## For problems about continous variables
+
+* $\bar{X}$ is the sample average
+
+* $\bar{X}$ estimates $\mu$
+
+* $s_X$ estimates $\sigma$
+
+* $N$ is the sample size
+
+* $\mu_{\bar{X}} = \mu$
+
+* $\sigma_{\bar{X}} = \frac{\sqrt{\sigma}}{N}$
+
+* If $N\geq 30$
+
+$$\frac{\bar{X}-\mu}{\sqrt{\frac{s_X}{N}}}$$
+follows standard normal distribution 
+
+* If $N \leq 30$ and **population data** is approximately normal then it follows a $t$ distribution with $N-1$ degrees of freedom.
+
+:::
+
+:::{.callout-note icon=false}
+
+## For categorical variables
+
+* We define $E_i = Np_i$ as the expected counts for each category if we take a sample of size $N$.
+
+* If we observe counts $O_1, \dots O_k$ then
+
+$$
+\sum_{i=1}^k \frac{(O_i - E_i)^2}{E_i} 
+$$
+
+follow $\chi^2$ with $k-1$ degrees of freedom.
+
+:::
+
+:::{.callout-note icon=false}
+
+## Regression line
+
+* $b$ is the slope of the least squares regression line. It is a random variable!
+
+* $\sigma_b$ is the standard deviation of the regression line. It usually given in a table under `SE Coef` column.
+
+* Under the null that their is no relationship and that residuals are approximately normal $b/\sigma_b$follows t distribution with $N-2$ degrees of freedom.
+
+* The residuals have average 0.
+
+
+:::
+
+:::{.callout-note}
+
+Note that all the test statistics have the form 
+
+$$
+\frac{\text{random variable} - \text{mean of random variable}}{\text{standard deviation of random variable}}
+$$
+In the case of the $\chi^2$ it is squared because we both negative and positive deviations from expected to make the statistic bigger.
+
+
+$$
+\frac{(\text{random variable} - \text{mean of random variable})^2}{\text{variance of random variable}}
+$$
+:::

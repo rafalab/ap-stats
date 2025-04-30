@@ -17,10 +17,10 @@ The sample average $\bar{X}$ follows a normal distribution with mean $\mu$ and s
 As with proportions we have 
 $$
 \begin{aligned}
-\text{P}(\mu \in [\bar{X} - 2 \sigma_{\bar{X}}, \bar{X} + 2 \sigma_{\bar{X}}]) &= \text{P}(\bar{X} -  2 \sigma_{\bar{X}} < \mu < \bar{X} +  2 \sigma_{\bar{X}}]) \\
-&= \text{P}(-  2 \sigma_{\bar{X}} < \bar{X} - \mu < 2 \sigma_{\bar{X}})\\
-&= \text{P}\left(-2  < \frac{\bar{X} - \mu}{\sigma_{\bar{X}}} < 2\right)\\
-&= \text{P}(-2 < Z < 2)\\
+\text{P}(\mu \in [\bar{X} - 1.96 \sigma_{\bar{X}}, \bar{X} + 1.96 \sigma_{\bar{X}}]) &= \text{P}(\bar{X} -  1.96 \sigma_{\bar{X}} < \mu < \bar{X} +  1.96 \sigma_{\bar{X}}]) \\
+&= \text{P}(-  1.96 \sigma_{\bar{X}} < \bar{X} - \mu < 1.96 \sigma_{\bar{X}})\\
+&= \text{P}\left(-1.96  < \frac{\bar{X} - \mu}{\sigma_{\bar{X}}} < 1.96\right)\\
+&= \text{P}(-1.96 < Z < 1.96)\\
 &=0.95
 \end{aligned}
 $$
@@ -54,7 +54,7 @@ All we have to do now is use the cutoff that gives us 0.95 for a t-distribution 
 
 You can use `invT` with area to the left and degrees of freedom.
 
-So instead of 2 we use `invT(0.975, 14)` which is `r qt(0.975, 14)`, a little bit bigger than 2.
+So instead of 1.96 we use `invT(0.975, 14)` which is `r qt(0.975, 14)`, a little bit bigger than 1.96.
 
 We make our confidence interval
 

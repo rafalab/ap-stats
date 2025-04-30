@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>5&nbsp; Proportions – AP Stats Review</title>
+<title>1&nbsp; Introduction – AP Stats Review</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./means.html" rel="next">
-<link href="./sampling-distributions.html" rel="prev">
+<link href="./one-variable-data.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -110,7 +110,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./proportions.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Proportions</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -146,7 +146,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+  <a href="./intro.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
@@ -170,7 +170,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./proportions.html" class="sidebar-item-text sidebar-link active">
+  <a href="./proportions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Proportions</span></span></a>
   </div>
 </li>
@@ -202,15 +202,9 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#confidence-intrval" id="toc-confidence-intrval" class="nav-link active" data-scroll-target="#confidence-intrval"><span class="header-section-number">5.1</span> Confidence intrval</a></li>
-  <li><a href="#critical-values" id="toc-critical-values" class="nav-link" data-scroll-target="#critical-values"><span class="header-section-number">5.2</span> Critical values</a></li>
-  <li><a href="#p-values" id="toc-p-values" class="nav-link" data-scroll-target="#p-values"><span class="header-section-number">5.3</span> p-values</a></li>
-  <li><a href="#difference-of-two-proportion" id="toc-difference-of-two-proportion" class="nav-link" data-scroll-target="#difference-of-two-proportion"><span class="header-section-number">5.4</span> Difference of two proportion</a>
-  <ul class="collapse">
-  <li><a href="#confidence-interval" id="toc-confidence-interval" class="nav-link" data-scroll-target="#confidence-interval"><span class="header-section-number">5.4.1</span> Confidence interval</a></li>
-  <li><a href="#p-value" id="toc-p-value" class="nav-link" data-scroll-target="#p-value"><span class="header-section-number">5.4.2</span> p-value</a></li>
-  <li><a href="#confidence-interval-and-p-value-connection" id="toc-confidence-interval-and-p-value-connection" class="nav-link" data-scroll-target="#confidence-interval-and-p-value-connection"><span class="header-section-number">5.4.3</span> Confidence interval and p-value connection</a></li>
-  </ul></li>
+  <li><a href="#population-parameters" id="toc-population-parameters" class="nav-link active" data-scroll-target="#population-parameters"><span class="header-section-number">1.1</span> Population parameters</a></li>
+  <li><a href="#random-variables" id="toc-random-variables" class="nav-link" data-scroll-target="#random-variables"><span class="header-section-number">1.2</span> Random variables</a></li>
+  <li><a href="#sample-estimates" id="toc-sample-estimates" class="nav-link" data-scroll-target="#sample-estimates"><span class="header-section-number">1.3</span> Sample estimates</a></li>
   </ul>
 </nav>
     </div>
@@ -219,7 +213,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Proportions</span></h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
 </div>
 
 
@@ -236,152 +230,168 @@ window.Quarto = {
 </header>
 
 
-<section id="confidence-intrval" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="confidence-intrval"><span class="header-section-number">5.1</span> Confidence intrval</h2>
-<p>Task:</p>
-<ul>
-<li><p>We take a sample of 1,000 voters.</p></li>
-<li><p>45% of our respondents say they will vote for trump.</p></li>
-<li><p>Provide an interval with 95% of containing the true proportion <span class="math inline">\(p\)</span></p></li>
-</ul>
-<p>Solution:</p>
-<p>Our proportion <span class="math inline">\(\hat{p}\)</span> follows a normal distribution with mean <span class="math inline">\(p\)</span> and standard deviation <span class="math inline">\(\sqrt{p(1-p)/N} \approx \sqrt{0.45\times 0.55/1000} \approx 0.016\)</span></p>
-<p>Lets consider symmetric intervals with: <span class="math inline">\([\hat{p} - B, \hat{p} + B]\)</span></p>
-<p>We want to find a <em>margin of error</em> <span class="math inline">\(\text{MOE}\)</span> such that:</p>
-<p><span class="math display">\[
-\text{P}(p \in [\hat{p} - \text{MOE}, \hat{p} + \text{MOE}]) = 0.95
-\]</span></p>
-<p>We accomplish it by setting <span class="math inline">\(\text{MOE} = 1.96 \sigma_{\hat{p}} \approx 1.96\sqrt{\hat{p}(1-\hat{p})}/\sqrt{N} \approx 0.03\)</span></p>
-<p><span class="math display">\[
-\begin{aligned}
-\text{P}(p \in [\hat{p} - 2 \sigma_{\hat{p}}, \hat{p} + 2 \sigma_{\hat{p}}]) &amp;= \text{P}(\hat{p} -  2 \sigma_{\hat{p}} &lt; p &lt; \hat{p} +  2 \sigma_{\hat{p}}]) \\
-&amp;= \text{P}(-  2 \sigma_{\hat{p}} &lt; \hat{p} - p &lt; 2 \sigma_{\hat{p}}])\\
-&amp;= \text{P}\left(-  2  &lt; \frac{\hat{p} - p}{\sigma_{\hat{p}}} &lt; 2\right)\\
-&amp;= \text{P}(-2 &lt; Z &lt; 2)\\
-&amp;=0.95
-\end{aligned}
-\]</span></p>
-<p>So our interval is <span class="math inline">\(0.45 \pm 0.03\)</span>.</p>
-<ul>
-<li><p>If we want to be 99.7% sure we can use 3 instead of 2.</p></li>
-<li><p>If we want to be 68% sure we can use 1 instead of 2.</p></li>
-</ul>
-<p>We refer to the 0.03 as the <em>margin of error</em> (MOE).</p>
-</section>
-<section id="critical-values" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="critical-values"><span class="header-section-number">5.2</span> Critical values</h2>
-<p>We already knew that using <span class="math inline">\(2\)</span> would give us a 95% confidence interval.</p>
-<p>But what if we didn’t know? Or if we wanted a 99% confidence interval?</p>
-<p>The function <code>invNorm</code> will do this for us. The impute is the area to the left.</p>
-<p>So to obtain 95% we need 0.5% to the left and 0..5% to the right.</p>
-<p>We use <code>invNorm(0.995)</code> which gives us <code>r qnorm(0.995)</code></p>
-<p>So we multiply by <span class="math inline">\(2.57\)</span> not <span class="math inline">\(2\)</span> to get a 99% confidence interval.</p>
-<p>Note that to get exactly 95% we actually use <code>invNorm(0.975)</code> which is <code>r qnorm(0.975)</code>, a little bit less than 2. In some books you will see 1.96 instead of 2.</p>
-</section>
-<section id="p-values" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="p-values"><span class="header-section-number">5.3</span> p-values</h2>
-<ul>
-<li><p>We want to know if a coin in biased.</p></li>
-<li><p>We toss it 100 times and observe 60% heads.</p></li>
-</ul>
-<p>Is it biased or can this happen by chance?</p>
-<p>Let’s compute the probability of seeing <span class="math inline">\(\hat{p} = 0.6\)</span> or more extreme.</p>
-<p>Note that 0.4 is as extreme: we usually permit both directions.</p>
-<p>Null hypothesis: It is fair or <span class="math inline">\(p=0.5\)</span></p>
-<p>We will reject if the <em>p-value</em> is 0.05 or smaller.</p>
-<p>The p-value is the probability observing something as extreme as we did when the null hypothesis holds</p>
-<p><span class="math display">\[
-\begin{aligned}
-\text{P}(|\hat{p} - p| \geq 0.1) &amp;= 1 - \text{P}(|\hat{p} - p| &lt; 0.1)\\
-&amp;=1 - \text{P}\left(\left|\frac{\hat{p}-p}{\sigma_{\hat{p}}}\right| &lt; \frac{0.1}{\sigma_{\hat{p}}}\right)\\
-&amp;=1 - \text{P}\left(|Z| &lt; \frac{0.1}{\sigma_{\hat{p}}}\right)
-\end{aligned}
-\]</span></p>
-<p>When the null hypothesis holds, <span class="math inline">\(\sigma_{\hat{p}} = \sqrt{0.5\times 0.5 / 100} = 0.05\)</span></p>
-<p>So the p-value is <span class="math inline">\(1 - \text{P}(|Z| &lt; 0.1/0.05 = 1.96)\)</span> which is a bit less than 0.05</p>
-<p>We reject the null hypothesis.</p>
+<p>Main notation, definitions, and properties to remember.</p>
+<section id="population-parameters" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="population-parameters"><span class="header-section-number">1.1</span> Population parameters</h2>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Type of errors
+For problems about proportions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(p\)</span> is the population proportion of 1s, <span class="math inline">\(1-p\)</span> is the proportion of 0s.</p>
+<p><span class="math inline">\(\sqrt{p(1-p)}\)</span> is the standard deviation of a population with a proprotion <span class="math inline">\(p\)</span> of 1s.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+For problems about continous variables
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(\mu\)</span> is the population average.</p>
+<p><span class="math inline">\(\sigma\)</span> is the population standard deviation</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+For categorical variables
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(p_1\)</span>, <span class="math inline">\(p_2\)</span>, , <span class="math inline">\(p_k\)</span> are the proportion of categories <span class="math inline">\(1,2,\dots,k\)</span> respectively.</p>
+</div>
+</div>
+</section>
+<section id="random-variables" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="random-variables"><span class="header-section-number">1.2</span> Random variables</h2>
+<p>All random variables <span class="math inline">\(X\)</span> have a distribution.</p>
+<ul>
+<li><p><span class="math inline">\(\mu_X\)</span> is the mean of this distribution</p></li>
+<li><p><span class="math inline">\(\sigma_X\)</span> is the standard deviation of this distribution</p></li>
+<li><p><span class="math inline">\(\mu_{X+Y} = \mu_{X}+\mu{Y}\)</span></p></li>
+<li><p><span class="math inline">\(\sigma_{X+Y} = \sqrt{\sigma_{X}^2+\sigma_{Y}^2}\)</span> <strong>IF <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent</strong>.</p></li>
+</ul>
+</section>
+<section id="sample-estimates" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="sample-estimates"><span class="header-section-number">1.3</span> Sample estimates</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+For problems about proportions
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>Type I error is rejecting the null hypothesis when it is true. Example say the coin is biased when it was fair.</p></li>
-<li><p>Type II error is failing to reject the null hypothesis when it is not true. Example saying the coin is fair when it was biased.</p></li>
-<li><p>Power is the 1 - probability of Type II error.</p></li>
+<li><p><span class="math inline">\(\hat{p}\)</span> is the sample population</p></li>
+<li><p><span class="math inline">\(\hat{p}\)</span> estimates <span class="math inline">\(p\)</span></p></li>
+<li><p><span class="math inline">\(N\)</span> is the sample size</p></li>
+<li><p><span class="math inline">\(\mu_{\hat{p}} = p\)</span></p></li>
+<li><p><span class="math inline">\(\sigma_{\hat{p}} = \sqrt{\frac{p(1-p)}{N}}\)</span></p></li>
+<li><p>If <span class="math inline">\(N\geq30\)</span></p></li>
+</ul>
+<p><span class="math display">\[\frac{\hat{p}-p}{\sqrt{\frac{\hat{p}(1-\hat{p}}{N}}}\]</span> follows standard normal distribution</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+For problems about continous variables
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><span class="math inline">\(\bar{X}\)</span> is the sample average</p></li>
+<li><p><span class="math inline">\(\bar{X}\)</span> estimates <span class="math inline">\(\mu\)</span></p></li>
+<li><p><span class="math inline">\(s_X\)</span> estimates <span class="math inline">\(\sigma\)</span></p></li>
+<li><p><span class="math inline">\(N\)</span> is the sample size</p></li>
+<li><p><span class="math inline">\(\mu_{\bar{X}} = \mu\)</span></p></li>
+<li><p><span class="math inline">\(\sigma_{\bar{X}} = \frac{\sqrt{\sigma}}{N}\)</span></p></li>
+<li><p>If <span class="math inline">\(N\geq 30\)</span></p></li>
+</ul>
+<p><span class="math display">\[\frac{\bar{X}-\mu}{\sqrt{\frac{s_X}{N}}}\]</span> follows standard normal distribution</p>
+<ul>
+<li>If <span class="math inline">\(N \leq 30\)</span> and <strong>population data</strong> is approximately normal then it follows a <span class="math inline">\(t\)</span> distribution with <span class="math inline">\(N-1\)</span> degrees of freedom.</li>
 </ul>
 </div>
 </div>
-<p>To help remember:</p>
-<p><img src="img/error-types.png" class="img-fluid"></p>
-</section>
-<section id="difference-of-two-proportion" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="difference-of-two-proportion"><span class="header-section-number">5.4</span> Difference of two proportion</h2>
-<section id="confidence-interval" class="level3" data-number="5.4.1">
-<h3 data-number="5.4.1" class="anchored" data-anchor-id="confidence-interval"><span class="header-section-number">5.4.1</span> Confidence interval</h3>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+For categorical variables
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
-<li><p>Does drug work better than placebo?</p></li>
-<li><p>The proportion of the populations are <span class="math inline">\(p_1\)</span> and <span class="math inline">\(p_2\)</span>.</p></li>
-<li><p>For both placebo and drugged populations we obtain sample means <span class="math inline">\(\hat{p}_1\)</span> and <span class="math inline">\(\hat{p}_2\)</span></p></li>
-<li><p>The sample sizes are <span class="math inline">\(N_1\)</span> and <span class="math inline">\(N_2\)</span></p></li>
-<li><p>Provide a 95% confidence interval</p></li>
+<li><p>We define <span class="math inline">\(E_i = Np_i\)</span> as the expected counts for each category if we take a sample of size <span class="math inline">\(N\)</span>.</p></li>
+<li><p>If we observe counts <span class="math inline">\(O_1, \dots O_k\)</span> then</p></li>
 </ul>
-<p>We know the difference <span class="math inline">\(\hat{p}_1 - \hat{p}_2\)</span> had the following mean and SD:</p>
-<ul>
-<li><span class="math inline">\(\mu_{\hat{p}_1 - \hat{p}_2} = p_1 - p_2\)</span></li>
-<li><span class="math inline">\(\sigma_{\hat{p}_1 - \hat{p}_2} = \sqrt{ \frac{p_1(1-p_1)}{N_1} + \frac{p_2(1-p_2)}{N_2}}\)</span></li>
-</ul>
-<p>To construct a 95% confidence interval we use <span class="math inline">\(\hat{p}_1 - \hat{p}_2 \pm \sigma_{\hat{p}_1 - \hat{p}_2}\)</span></p>
-<p>As before we estimate</p>
 <p><span class="math display">\[
-\sigma_{\hat{p}_1 - \hat{p}_2} =  \sqrt{ \frac{\hat{p}_1(1-\hat{p}_1)}{N_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{N_2}}
+\sum_{i=1}^k \frac{(O_i - E_i)^2}{E_i}
 \]</span></p>
-</section>
-<section id="p-value" class="level3" data-number="5.4.2">
-<h3 data-number="5.4.2" class="anchored" data-anchor-id="p-value"><span class="header-section-number">5.4.2</span> p-value</h3>
+<p>follow <span class="math inline">\(\chi^2\)</span> with <span class="math inline">\(k-1\)</span> degrees of freedom.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Regression line
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
-<li><p>Suppose we have sample sizes of 25 and 100 for the the drug and placebo group respectively and</p></li>
-<li><p>we observe <span class="math inline">\(\hat{p}_1 = 0.25\)</span> and <span class="math inline">\(\hat{p}_2 = 0.15\)</span></p></li>
-<li><p>The null is that there is no difference so <span class="math inline">\(p_1 - p_2\)</span> or <span class="math inline">\(p_1 = p_2 = p\)</span></p></li>
+<li><p><span class="math inline">\(b\)</span> is the slope of the least squares regression line. It is a random variable!</p></li>
+<li><p><span class="math inline">\(\sigma_b\)</span> is the standard deviation of the regression line. It usually given in a table under <code>SE Coef</code> column.</p></li>
+<li><p>Under the null that their is no relationship and that residuals are approximately normal <span class="math inline">\(b/\sigma_b\)</span>follows t distribution with <span class="math inline">\(N-2\)</span> degrees of freedom.</p></li>
+<li><p>The residuals have average 0.</p></li>
 </ul>
-<p>Under the null hypothesis we have</p>
-<ul>
-<li><p><span class="math inline">\(\mu_{\hat{p}_1 - \hat{p}_2} = 0\)</span></p></li>
-<li><p><span class="math inline">\(\sigma_{\hat{p}_1 - \hat{p}_2} = \sqrt{ \frac{p(1-p)}{N_1} + \frac{p(1-p)}{N_2}}\)</span></p></li>
-</ul>
-<p>To compute the p-value we need an estimate for <span class="math inline">\(\sigma_{\hat{p}_1 - \hat{p}_2}\)</span> which depends on <span class="math inline">\(p\)</span></p>
-<p>We estimate <span class="math inline">\(p\)</span> with pooled data:</p>
-<p><span class="math display">\[\frac{N_1\hat{p}_1 + N_2\hat{p}_2}{N_1+N_2} = 0.17\]</span></p>
-<p>which means <span class="math inline">\(\sigma_{\hat{p}_1 - \hat{p}_2} \approx \sqrt{(0.17\times 0.83)(1/25+1/100)} \approx 0.08\)</span></p>
-<p>With this we can compute</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note that all the test statistics have the form</p>
 <p><span class="math display">\[
-\begin{aligned}
-\text{P}(|\hat{p}_1 - \hat{p}_2| \geq 0.1) &amp;= 1 - \text{P}(|Z| &lt; 0.1/\sigma_{\hat{p}_1 - \hat{p}_2})\\
-&amp;= 1 - \text{P}(|Z| &lt; 0.1/0.08) \\
-&amp;\approx 0.20
-\end{aligned}
+\frac{\text{random variable} - \text{mean of random variable}}{\text{standard deviation of random variable}}
+\]</span> In the case of the <span class="math inline">\(\chi^2\)</span> it is squared because we both negative and positive deviations from expected to make the statistic bigger.</p>
+<p><span class="math display">\[
+\frac{(\text{random variable} - \text{mean of random variable})^2}{\text{variance of random variable}}
 \]</span></p>
-<p>We do not reject.</p>
-</section>
-<section id="confidence-interval-and-p-value-connection" class="level3" data-number="5.4.3">
-<h3 data-number="5.4.3" class="anchored" data-anchor-id="confidence-interval-and-p-value-connection"><span class="header-section-number">5.4.3</span> Confidence interval and p-value connection</h3>
-<p>You can do the math and see that <strong>if a 95% confidence interval does not include the null hypothesis mean, then a p-value will be less than 0.05</strong></p>
-<p>The math:</p>
-<p>If the null hypothesis says the mean is <span class="math inline">\(p\)</span> and the observed <span class="math inline">\(\hat{p}\)</span> resulted in a p-value less than 0.05, we know:</p>
-<p><span class="math display">\[
-\left| \frac{\hat{p} - p}{\sigma_{\hat{p}}} \right| &gt; 2
-\]</span> This implies that either</p>
-<p><span class="math display">\[
-p &gt; \hat{p} + 2\sigma_{\hat{p}} \text{ or } p &lt; \hat{p} - 2\sigma_{\hat{p}}
-\]</span></p>
+</div>
+</div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -807,13 +817,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./sampling-distributions.html" class="pagination-link" aria-label="Sampling distributions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Sampling distributions</span></span>
+      <a href="./index.html" class="pagination-link" aria-label="Preface">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./means.html" class="pagination-link" aria-label="Means">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Means</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./one-variable-data.html" class="pagination-link" aria-label="One varialbe data">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">One varialbe data</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

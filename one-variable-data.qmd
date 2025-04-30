@@ -40,7 +40,7 @@ If $\mu = 0$ and $\sigma = 1$ it is called **standard**.
 Memorize the following: For a standard normal random variable $Z$:
 
 * 68% are between -1 and 1
-* 95% are between -2 and 2
+* 95% are between -2 and 2 (-1.96 and 1.96 to be precise)
 * 99.7% between -3 and 3
 
 You can use the `normalcdf` function to obtain these probabilities

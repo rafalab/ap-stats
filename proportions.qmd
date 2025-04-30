@@ -22,7 +22,7 @@ $$
 \text{P}(p \in [\hat{p} - \text{MOE}, \hat{p} + \text{MOE}]) = 0.95
 $$
 
-We accomplish it by setting $\text{MOE} = 2 \sigma_{\hat{p}} \approx \sqrt{\hat{p}(1-\hat{p})}/\sqrt{N} \approx 0.03$
+We accomplish it by setting $\text{MOE} = 1.96 \sigma_{\hat{p}} \approx 1.96\sqrt{\hat{p}(1-\hat{p})}/\sqrt{N} \approx 0.03$
 
 $$
 \begin{aligned}
@@ -88,7 +88,7 @@ $$
 
 When the null hypothesis holds, $\sigma_{\hat{p}} = \sqrt{0.5\times 0.5 / 100} = 0.05$
 
-So the p-value is $1 - \text{P}(|Z| < 0.1/0.05 = 2)$ which is a bit less than 0.05
+So the p-value is $1 - \text{P}(|Z| < 0.1/0.05 = 1.96)$ which is a bit less than 0.05
 
 We reject the null hypothesis.
 
