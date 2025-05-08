@@ -64,7 +64,7 @@ All random variables $X$ have a distribution.
 
 * $\sigma_{\hat{p}} = \sqrt{\frac{p(1-p)}{N}}$
 
-* If $N\geq30$
+* If $N2\geq30$
 
 $$\frac{\hat{p}-p}{\sqrt{\frac{\hat{p}(1-\hat{p})}{N}}}$$
 follows standard normal distribution
